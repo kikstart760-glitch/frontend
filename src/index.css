@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Exo:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sawarabi+Mincho&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body,#root{
+    overflow-x: hidden;
+    height: 100%;
+}
+img{
+    max-width: 100%;
+}
+figure{
+    margin: 0;
+}
+.container{
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 12px;
+}
+p,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+a{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}

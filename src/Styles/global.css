@@ -1,0 +1,16 @@
+.backgroundImg {              /* FULL SCREEN HEIGHT */
+  background-size: cover;     /* IMPORTANT: fills screen */
+  background-repeat: no-repeat;
+}
+.title{
+    text-align: center;
+    padding-top: 80px;
+}
+.sub-title{
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    padding-top: 15px;
+}
