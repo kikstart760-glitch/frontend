@@ -1,5 +1,8 @@
-.backgroundImg {              /* FULL SCREEN HEIGHT */
-  background-size: cover;     /* IMPORTANT: fills screen */
+.backgroundImg {
+  width: 100%;
+  height: 100vh;  
+  
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .title{

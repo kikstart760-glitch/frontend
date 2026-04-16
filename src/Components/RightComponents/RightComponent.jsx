@@ -4,7 +4,8 @@ import '../../Styles/global.css'
 function RightComponent() {
   return (
     <div>
-        <h1>testtttttttttttttttttttttttttttt</h1>
+        <h1>Sign Up</h1>
+        
     </div>
   );
 }

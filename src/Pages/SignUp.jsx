@@ -8,18 +8,16 @@ import RightComponent from '../Components/RightComponents/RightComponent'
 function SignUp() {
   return (
     <div>
-        <div className="container">
-            <Container>
-                <Row>
-                    <Col md={6}>
-                        <LeftComponent/>
-                    </Col>
-                    <Col md={6}>
-                        <RightComponent/>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <LeftComponent/>
+                </Col>
+                <Col>
+                    <RightComponent/>
+                </Col>
+            </Row>
+        </Container>
     </div>
   );
 }
