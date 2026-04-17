@@ -1,11 +1,11 @@
 import React from 'react'
 import '../../Styles/global.css'
+import SignupComponent from '../SignupComponents/SignupComponent';
 
 function RightComponent() {
   return (
     <div>
-        <h1>Sign Up</h1>
-        
+        <SignupComponent/>
     </div>
   );
 }
