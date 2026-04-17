@@ -7,7 +7,7 @@ import RightComponent from '../Components/RightComponents/RightComponent'
 
 function SignUp() {
   return (
-    <div>
+    <div className='signup-page'>
         <Container>
             <Row>
                 <Col>
