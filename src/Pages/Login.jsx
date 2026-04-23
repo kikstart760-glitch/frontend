@@ -1,25 +1,25 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import LeftComponent from '../Components/LeftComponents/LeftComponent'
-import SignupComponent from '../Components/SignupComponents/SignupComponent'
+import LoginComponent from '../Components/LoginComponents/LoginComponent'
+import Row from 'react-bootstrap/esm/Row'
+import Col from 'react-bootstrap/esm/Col'
+import Container from 'react-bootstrap/esm/Container'
 
-function SignUp() {
+function Login() {
   return (
-    <div className='signup-page'>
+    <div className='login-page'>
         <Container>
             <Row>
                 <Col>
                     <LeftComponent/>
                 </Col>
                 <Col>
-                    <SignupComponent/>
+                    <LoginComponent/>
                 </Col>
             </Row>
         </Container>
     </div>
-  );
+  )
 }
 
-export default SignUp
+export default Login

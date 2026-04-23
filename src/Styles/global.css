@@ -35,7 +35,28 @@
 }
 
 .btn-signup:hover{
-    background-color: #007bb5;
+    background-color: #133644;
+    color: #E7F2F5;
+}
+
+.btn-login{
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #009EE2;
+    color: #fff;
+    font-family: "Kumbh Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-login:hover{
+    background-color: #133644;
+    color: #E7F2F5;
 }
 
 .social-buttons{
@@ -60,4 +81,41 @@
 
 .btn-social:hover{
     background-color: #C1D9E0;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #d2d3d3;
+    padding: 12px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.wrapper{
+    width: 75%;
+}
+.wrapper h1 {
+   font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+}
+.wrapper p {
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
 }
