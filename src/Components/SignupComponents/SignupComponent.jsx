@@ -1,8 +1,10 @@
 import React from 'react'
-import '../../Styles/global.css'
+import '../SignupComponents/SignupComponents.css'
+import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import SocialButtons from '../SocialButtons/SocialButtons'
+import ButtonComponent from '../ButtonComponent/ButtonComponent'
 
 
 function SignupComponent() {
@@ -34,11 +36,11 @@ function SignupComponent() {
             <Form.Control type="password" placeholder="Confirm Password" />
           </FloatingLabel>
           <Form.Check type="checkbox" aria-label="radio 1" label="I agree to the Terms and Conditions" className="mb-2" />
-          <button type="submit" className="btn btn-signup">Sign Up</button>
+          <ButtonComponent text="Sign Up" variant="signup" />
         </form>
         <SocialButtons />
         <div className="dont" style={{ textAlign: 'center', paddingTop: '20px' }}>
-          <p>Already have an account? <a href="/login">Log in</a></p>
+          <p>Already have an account? <Link to="/login">Log in</Link></p>
         </div>
       </div>
     </div>

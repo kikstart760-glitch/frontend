@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   return (
-    <div>
+    <div className='container'>
       home page
         <Link to="/signup">Go to Signup</Link>
             <br />

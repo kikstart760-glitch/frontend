@@ -1,8 +1,11 @@
 import React from 'react'
+import '../LoginComponents/LoginComponents.css'
 import '../../Styles/global.css'
+import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import SocialButtons from '../SocialButtons/SocialButtons'
+import ButtonComponent from '../ButtonComponent/ButtonComponent'
 
 function LoginComponent() {
   return (
@@ -17,11 +20,12 @@ function LoginComponent() {
                   <FloatingLabel controlId="floatingInput" label="Password" className="mb-3">
                       <Form.Control type="password" placeholder="Password" />
                   </FloatingLabel>
-                  <button type="submit" className="btn btn-login">Log In</button>
+                  <Link to="/forgot-password">Forgot Password?</Link>
+                  <ButtonComponent text="Log In" variant="login" />
               </form>
               <SocialButtons />
               <div className="under-text" style={{ textAlign: 'center', paddingTop: '20px' }}>
-                  <p>Don't have an account? <a href="/signup">Sign up</a></p>
+                  <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
               </div>
           </div>
       </div>

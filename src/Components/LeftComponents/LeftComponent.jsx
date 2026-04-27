@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/global.css'
+import '../LeftComponents/LeftComponents.css'
 import img from '../../assets/Rectangle 26.png'
 import img2 from '../../assets/logo.png'
 

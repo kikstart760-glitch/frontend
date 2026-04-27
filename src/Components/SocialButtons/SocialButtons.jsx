@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Styles/global.css'
+import '../SocialButtons/SocialButtons.css'
 import GoogleIcon from '../../assets/google-symbol.png'
 import FacebookIcon from  '../../assets/facebook.png'
 import GitIcon from'../../assets/github.png'

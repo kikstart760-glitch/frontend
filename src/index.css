@@ -16,7 +16,9 @@ figure{
     margin: 0;
 }
 .container{
-    max-width: 1600px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 14px;
 }
 p,h1,h2,h3,h4,h5,h6{
     margin: 0;
