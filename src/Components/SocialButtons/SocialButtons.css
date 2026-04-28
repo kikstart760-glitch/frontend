@@ -7,17 +7,17 @@
 }
 
 .btn-social{
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
     align-items: center;
-    padding: 18px 35px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    background-color: #E7F2F5;
+    padding: 18px 35px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    background-color: #E7F2F5 !important;
 }
 
 .btn-social:hover{
-    background-color: #C1D9E0;
+    background-color: #C1D9E0 !important;
 }
