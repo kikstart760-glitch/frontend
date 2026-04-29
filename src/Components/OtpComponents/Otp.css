@@ -1,0 +1,48 @@
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-bottom: 20px;
+}
+
+.otp-input {
+  width: 40px;
+  border: none;
+  border-bottom: 2px solid #6b7280;
+  text-align: center;
+  font-size: 24px;
+  outline: none;
+  padding: 8px 0;
+  background: transparent;
+}
+
+.otp-input:focus {
+  border-bottom: 2px solid #009ee2;
+}
+
+.cover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.wrapper{
+    width: 75%;
+}
+.wrapper h1 {
+   font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+}
+.wrapper p {
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
