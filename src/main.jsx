@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
         closeOnClick
         pauseOnHover
         draggable
-        theme="colored"
+        theme="dark"
       />
     </QueryClientProvider>
   </StrictMode>,

@@ -4,7 +4,7 @@ import '../ButtonComponent/ButtonComponent.css';
 
 function ButtonComponent({
   text = "Click",
-  type = "button",
+  type = "submit",
   onClick,
   variant = "signup",
   disabled = false,

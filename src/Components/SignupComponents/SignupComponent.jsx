@@ -1,156 +1,172 @@
-import React from 'react'
-import '../SignupComponents/SignupComponents.css'
-import { Link } from 'react-router-dom'
-import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/FloatingLabel'
-import SocialButtons from '../SocialButtons/SocialButtons'
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import React, { useState } from 'react';
+import '../SignupComponents/SignupComponents.css';
+import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import SocialButtons from '../SocialButtons/SocialButtons';
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import { toast } from 'react-toastify';
 
 function SignupComponent() {
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     location: "",
-    passcode: "",
+    pincode: "",
     password: "",
     confirmPassword: "",
     terms: false,
   });
 
-  const mutation = useMutation({
-    mutationFn: signUp,
-    onSuccess: () => {
-      toast.success("Signup successful 🎉");
-    },
-    onError: (err) => {
-      toast.error(err?.response?.data?.message || "Signup failed");
-    },
-  });
-
+  // Handle Input Change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
+    // Only allow numbers in pincode
+    if (name === "pincode" && !/^\d*$/.test(value)) return;
+
     setFormData({
       ...formData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value
     });
   };
 
-  const validate = () => {
-    if (!formData.name) return "Name required";
-    if (!formData.email) return "Email required";
-    if (!/\S+@\S+\.\S+/.test(formData.email)) return "Invalid email";
-    if (!formData.phone) return "Phone required";
-    if (formData.passcode.length !== 6) return "Passcode must be 6 digits";
-    if (formData.password.length < 6) return "Password too short";
-    if (formData.password !== formData.confirmPassword)
-      return "Passwords do not match";
-    if (!formData.terms) return "Accept terms first";
-    return null;
-  };
-
+  // Handle Form Submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("SUBMIT CLICKED");
 
-    const error = validate();
-    if (error) {
-      console.log("VALIDATION ERROR:", error);
-      return toast.error(error);
+    // Validation
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
     }
 
-    console.log("API CALL:", formData);
-    mutation.mutate(formData);
+    if (!formData.terms) {
+      toast.error("You must accept Terms and Conditions");
+      return;
+    }
+
+    console.log("Form Submitted:", formData);
+    toast.success("Signup Successful!");
   };
 
   return (
     <div className="cover">
       <div className="wrapper">
-        <h1>Sign Up</h1>
-        <p>Please fill in the details below to create an account.</p>
+        <h1 className='big-text'>Sign Up</h1>
+        <p className='sm-text'>Please fill in the details below to create an account.</p>
 
-        <form>
-          <FloatingLabel controlId="floatingInput" label="Full Name" className="mb-2">
+        <form onSubmit={handleSubmit}>
+
+          <FloatingLabel label="Full Name" className="mb-2">
             <Form.Control 
-              type="name" 
-              placeholder="John Doe" 
-              name='Name' 
+              type="text"
+              placeholder="John Doe"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
-          <FloatingLabel controlId="floatingInput" label="Email address" className="mb-2">
+          <FloatingLabel label="Email address" className="mb-2">
             <Form.Control 
-              type="email" 
-              placeholder="name@example.com" 
-              name='Email' 
+              type="email"
+              placeholder="name@example.com"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
-          <FloatingLabel controlId="floatingInput" label="Phone Number" className="mb-2">
+          <FloatingLabel label="Phone Number" className="mb-2">
             <Form.Control 
-              type="tel" 
-              placeholder="123-456-7890" 
-              name='Phone' 
+              type="tel"
+              placeholder="1234567890"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
-          <FloatingLabel controlId="floatingInput" label="Location" className="mb-2">
+          <FloatingLabel label="Location" className="mb-2">
             <Form.Control 
-              type="text" 
-              placeholder="City, State" 
-              name='Location' 
+              type="text"
+              placeholder="City, State"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
-          <FloatingLabel controlId="floatingInput" label="Passcode" className="mb-2">
+          <FloatingLabel label="Pincode (6 digits)" className="mb-2">
             <Form.Control
               type="text"
-              placeholder="Enter passcode"
+              placeholder="Enter pincode"
               maxLength={6}
-              pattern="[0-9]*"
-              inputMode="numeric"
-              name='Passcode'
+              name="pincode"
+              value={formData.pincode}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
-          <FloatingLabel controlId="floatingInput" label="Password" className="mb-2">
+          <FloatingLabel label="Password" className="mb-2">
             <Form.Control 
-              type="password" 
-              placeholder="Password" 
-              name='Password' 
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
-          <FloatingLabel controlId="floatingInput" label="Confirm Password" className="mb-2">
+          <FloatingLabel label="Confirm Password" className="mb-2">
             <Form.Control 
-              type="password" 
-              placeholder="Confirm Password" 
-              name='ConfirmPassword'
+              type="password"
+              placeholder="Confirm Password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
             />
           </FloatingLabel>
 
           <Form.Check
             type="checkbox"
-            aria-label="radio 1"
             label="I agree to the Terms and Conditions"
-            className="mb-2"
-            name='Terms'
+            className="mb-3"
+            name="terms"
+            checked={formData.terms}
+            onChange={handleChange}
           />
 
-          <ButtonComponent text="Sign Up" variant="signup" />
-        </form>
+          {/* Make sure ButtonComponent uses type="submit" */}
+          <ButtonComponent 
+            text="Sign Up" 
+            variant="signup"
+            disabled={!formData.terms}
+          />
 
+        </form>
 
         <SocialButtons />
 
-        <div className="dont" style={{ textAlign: 'center', paddingTop: '20px' }}>
+        <div className="dont" style={{ textAlign: 'center' }}>
           <p>
             Already have an account? <Link to="/login">Log in</Link>
           </p>
         </div>
+
       </div>
     </div>
   );
 }
 
-export default SignupComponent
+export default SignupComponent;
