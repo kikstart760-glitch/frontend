@@ -1,6 +1,6 @@
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../ButtonComponent/ButtonComponent.css";
+import '../ButtonComponent/ButtonComponent.css';
 
 function ButtonComponent({
   text = "Click",
@@ -8,15 +8,23 @@ function ButtonComponent({
   onClick,
   variant = "signup",
   disabled = false,
+  loading = false
 }) {
   return (
     <button
       type={type}
       onClick={onClick}
-      disabled={disabled}
-      className={`btn btn-${variant}`}
+      disabled={disabled || loading}
+      className={`btn btn-wrapper btn-${variant}`}
     >
-      {text}
+      {loading ? (
+        <>
+          <span className="spinner"></span>
+          <span style={{ marginLeft: "8px" }}>Please wait...</span>
+        </>
+      ) : (
+        text
+      )}
     </button>
   );
 }
