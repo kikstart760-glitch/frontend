@@ -31,8 +31,8 @@ function ForgetPassword() {
   return (
     <div className='cover'>
         <div className='wrapper'>
-            <h1>Forget Password</h1>
-            <p>Please enter your email address or phone number to reset your password.</p>
+            <h1 className='big-text'>Forget Password</h1>
+            <p className='sm-text'>Please enter your email address or phone number to reset your password.</p>
 
             <form onSubmit={handleSubmit}>
                 <FloatingLabel

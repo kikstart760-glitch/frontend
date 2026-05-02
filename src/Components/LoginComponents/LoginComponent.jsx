@@ -11,8 +11,8 @@ function LoginComponent() {
   return (
       <div className='cover'>
           <div className='wrapper'>
-              <h1>Login</h1>
-              <p>Please enter your credentials to log in.</p>
+              <h1 className='big-text'>Login</h1>
+              <p className='sm-text'>Please enter your credentials to log in.</p>
               <form>
                   <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
                       <Form.Control type="email" placeholder="name@example.com" />

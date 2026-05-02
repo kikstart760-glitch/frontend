@@ -71,8 +71,8 @@ function OtpComponents() {
     return (
         <div className="cover">
             <div className="wrapper">
-                <h1>OTP Verification</h1>
-                <p>Please enter the 6-digit code sent to your email.</p>
+                <h1 className='big-text'>OTP Verification</h1>
+                <p className='sm-text'>Please enter the 6-digit code sent to your email.</p>
 
                 <div className="otp-container" onPaste={handlePaste}>
                 {Array.from({ length }).map((_, index) => (

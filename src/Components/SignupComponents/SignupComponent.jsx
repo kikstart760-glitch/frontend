@@ -6,6 +6,10 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import SocialButtons from '../SocialButtons/SocialButtons';
 import ButtonComponent from '../ButtonComponent/ButtonComponent';
 import { toast } from 'react-toastify';
+import target from '../../assets/target.png';
+import { useMutation } from '@tanstack/react-query';
+import { signUp } from '../../Api/Authapi';
+import { useNavigate } from 'react-router-dom';
 
 function SignupComponent() {
 
@@ -20,11 +24,10 @@ function SignupComponent() {
     terms: false,
   });
 
-  // Handle Input Change
+  // Handle input change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    // Only allow numbers in pincode
     if (name === "pincode" && !/^\d*$/.test(value)) return;
 
     setFormData({
@@ -33,11 +36,77 @@ function SignupComponent() {
     });
   };
 
-  // Handle Form Submit
+  // ✅ FULL LOCATION FETCH
+  const getCurrentLocation = () => {
+    if (!navigator.geolocation) {
+      toast.error("Geolocation not supported");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+          );
+          const data = await res.json();
+
+          const address = data.address;
+
+          const village = address.village || address.hamlet || "";
+          const suburb = address.suburb || "";
+          const city = address.city || address.town || "";
+          const district = address.county || "";
+          const state = address.state || "";
+          const pincode = address.postcode || "";
+          const country = address.country || "";
+
+          const fullLocation = [
+            village,
+            suburb,
+            city,
+            district,
+            state,
+            pincode,
+            country
+          ]
+            .filter(Boolean)
+            .join(", ");
+
+          setFormData(prev => ({
+            ...prev,
+            location: fullLocation,
+            pincode: pincode
+          }));
+
+          toast.success("Full location fetched!");
+        } catch (err) {
+          toast.error("Failed to fetch location");
+        }
+      },
+      () => {
+        toast.error("Location permission denied");
+      }
+    );
+  };
+  
+  const { mutate, isPending, isError, error } = useMutation({
+    mutationFn: signUp,
+    onSuccess: () => {
+      toast.success("Signup Successful!");
+      navigate("/otp");
+    },
+    onError: (error) => {
+      toast.error(error?.response?.data?.message || "Signup Failed!");
+    }
+  });
+
+  // Handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match");
       return;
@@ -49,14 +118,27 @@ function SignupComponent() {
     }
 
     console.log("Form Submitted:", formData);
-    toast.success("Signup Successful!");
+    mutate(
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        location: formData.location,
+        pincode: formData.pincode,
+        password: formData.password,
+      }
+    );
+      
   };
+
 
   return (
     <div className="cover">
       <div className="wrapper">
         <h1 className='big-text'>Sign Up</h1>
-        <p className='sm-text'>Please fill in the details below to create an account.</p>
+        <p className='sm-text'>
+          Please fill in the details below to create an account.
+        </p>
 
         <form onSubmit={handleSubmit}>
 
@@ -87,22 +169,43 @@ function SignupComponent() {
               type="tel"
               placeholder="1234567890"
               name="phone"
+              maxLength={10}
               value={formData.phone}
               onChange={handleChange}
               required
             />
           </FloatingLabel>
 
-          <FloatingLabel label="Location" className="mb-2">
-            <Form.Control 
-              type="text"
-              placeholder="City, State"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
+          {/* LOCATION FIELD WITH IMAGE ICON */}
+          <div style={{ position: 'relative' }}>
+            <FloatingLabel label="Location" className="mb-2">
+              <Form.Control 
+                type="text"
+                placeholder="City, State"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                style={{ paddingRight: '40px' }}
+              />
+            </FloatingLabel>
+
+            <img
+              src={target}
+              alt="location"
+              onClick={getCurrentLocation}
+              title="Use current location"
+              style={{
+                position: 'absolute',
+                right: '12px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                cursor: 'pointer',
+                width: '20px',
+                height: '20px'
+              }}
             />
-          </FloatingLabel>
+          </div>
 
           <FloatingLabel label="Pincode (6 digits)" className="mb-2">
             <Form.Control
@@ -147,11 +250,11 @@ function SignupComponent() {
             onChange={handleChange}
           />
 
-          {/* Make sure ButtonComponent uses type="submit" */}
           <ButtonComponent 
-            text="Sign Up" 
+            text={isPending ? "Signing up..." : "Sign Up"}
             variant="signup"
             disabled={!formData.terms}
+            loading={isPending}
           />
 
         </form>
