@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router-dom';
 
 function SignupComponent() {
 
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
