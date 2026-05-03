@@ -13,3 +13,11 @@
 .reset-page-container{
     min-width: 100%;
 }
+.custom-link{
+    color: #4788cd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.custom-link:hover {
+    color: #1a5a9c;
+}

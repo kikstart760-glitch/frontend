@@ -10,10 +10,14 @@ import target from '../../assets/target.png';
 import { useMutation } from '@tanstack/react-query';
 import { signUp } from '../../Api/Authapi';
 import { useNavigate } from 'react-router-dom';
+import { FaEye,FaEyeSlash } from 'react-icons/fa';
 
 function SignupComponent() {
 
   const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -221,31 +225,65 @@ function SignupComponent() {
             />
           </FloatingLabel>
 
-          <FloatingLabel label="Password" className="mb-2">
+          <FloatingLabel label="Password" className="mb-2 position-relative">
             <Form.Control 
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
+              style={{ paddingRight: "45px" }}
             />
+
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
+              {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+            </span>
           </FloatingLabel>
 
-          <FloatingLabel label="Confirm Password" className="mb-2">
+          <FloatingLabel label="Confirm Password" className="mb-2 position-relative">
             <Form.Control 
-              type="password"
+              type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
+              style={{ paddingRight: "45px" }}
             />
+
+            <span
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
+              {showConfirmPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+            </span>
           </FloatingLabel>
 
           <Form.Check
             type="checkbox"
-            label="I agree to the Terms and Conditions"
+            label="I agree to the Terms of Service and Privacy Policy"
             className="mb-3"
             name="terms"
             checked={formData.terms}
@@ -265,7 +303,7 @@ function SignupComponent() {
 
         <div className="dont" style={{ textAlign: 'center' }}>
           <p>
-            Already have an account? <Link to="/login">Log in</Link>
+            Already have an account? <Link className='custom-link' to="/login">Log in</Link>
           </p>
         </div>
 
