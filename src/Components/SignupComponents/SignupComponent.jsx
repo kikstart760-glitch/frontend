@@ -253,32 +253,15 @@ function SignupComponent() {
             </span>
           </FloatingLabel>
 
-          <FloatingLabel label="Confirm Password" className="mb-2 position-relative">
+          <FloatingLabel label="Confirm Password" className="mb-2">
             <Form.Control 
-              type={showConfirmPassword ? "text" : "password"}
+              type="password"
               placeholder="Confirm Password"
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              style={{ paddingRight: "45px" }}
             />
-
-            <span
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              style={{
-                position: "absolute",
-                right: "12px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                zIndex: 10,
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center"
-              }}
-            >
-              {showConfirmPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
-            </span>
           </FloatingLabel>
 
           <Form.Check
