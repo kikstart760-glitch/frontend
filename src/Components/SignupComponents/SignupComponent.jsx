@@ -100,9 +100,15 @@ function SignupComponent() {
   
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: signUp,
-    onSuccess: () => {
-      toast.success("Signup Successful!");
-      navigate("/otp");
+    onSuccess: (data) => {
+      if (data?.redirectToOtp) {
+        toast.error(data.message);
+        navigate("/otp");
+        return;
+      }else {
+        toast.success("Signup Successful!");
+        navigate("/otp");
+      }
     },
     onError: (error) => {
       toast.error(error?.response?.data?.message || "Signup Failed!");
