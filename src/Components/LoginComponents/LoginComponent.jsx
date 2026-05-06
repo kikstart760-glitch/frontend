@@ -1,35 +1,150 @@
-import React from 'react'
-import '../LoginComponents/LoginComponents.css'
-import '../../Styles/global.css'
-import { Link } from 'react-router-dom'
-import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/FloatingLabel'
-import SocialButtons from '../SocialButtons/SocialButtons'
-import ButtonComponent from '../ButtonComponent/ButtonComponent'
+import React, { useState } from 'react';
+import '../LoginComponents/LoginComponents.css';
+import '../../Styles/global.css';
+import { Link, useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import SocialButtons from '../SocialButtons/SocialButtons';
+import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import { toast } from 'react-toastify';
+import { useMutation } from '@tanstack/react-query';
+import { login } from '../../Api/Authapi'; // ✅ make sure this exists
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function LoginComponent() {
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [formData, setFormData] = useState({
+    identifier: "",
+    password: ""
+  });
+
+  // 🔁 Handle input
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  // 🚀 React Query Mutation
+  const { mutate, isPending } = useMutation({
+    mutationFn: login,
+    onSuccess: (data) => {
+      if (data?.redirectToOtp) {
+        toast.info(data.message);
+        navigate("/otp");
+      } else {
+        toast.success("Login successful!");
+        navigate("/otp"); // or dashboard
+      }
+    },
+    onError: (error) => {
+      toast.error(error?.response?.data?.message || "Login failed!");
+    }
+  });
+
+  // 🧠 Detect email or phone + submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10}$/;
+
+    let payload = {
+      password: formData.password
+    };
+
+    if (emailRegex.test(formData.identifier)) {
+      payload.email = formData.identifier;
+    } 
+    else if (phoneRegex.test(formData.identifier)) {
+      payload.phone = formData.identifier;
+    } 
+    else {
+      toast.error("Enter valid email or phone number");
+      return;
+    }
+
+    console.log("Sending Payload:", payload);
+    mutate(payload);
+  };
+
   return (
-      <div className='cover'>
-          <div className='wrapper'>
-              <h1 className='big-text'>Login</h1>
-              <p className='sm-text'>Please enter your credentials to log in.</p>
-              <form>
-                  <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
-                      <Form.Control type="email" placeholder="name@example.com" />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="floatingInput" label="Password" className="mb-3">
-                      <Form.Control type="password" placeholder="Password" />
-                  </FloatingLabel>
-                  <Link to="/forgot-password">Forgot Password?</Link>
-                  <ButtonComponent text="Log In" variant="login" />
-              </form>
-              <SocialButtons />
-              <div className="under-text" style={{ textAlign: 'center', paddingTop: '20px' }}>
-                  <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
-              </div>
-          </div>
+    <div className='cover'>
+      <div className='wrapper'>
+        <h1 className='big-text'>Login</h1>
+        <p className='sm-text'>Please enter your credentials to log in.</p>
+
+        <form onSubmit={handleSubmit}>
+
+          {/* 🔥 Email OR Phone */}
+          <FloatingLabel label="Email or Phone" className="mb-3">
+            <Form.Control 
+              type="text"
+              placeholder="Enter email or phone"
+              name="identifier"
+              value={formData.identifier}
+              onChange={handleChange}
+              required
+            />
+          </FloatingLabel>
+
+          {/* 🔐 Password */}
+          <FloatingLabel label="Password" className="mb-2 position-relative">
+            <Form.Control 
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              style={{ paddingRight: "45px" }}
+            />
+
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              style={{
+                position: "absolute",
+                right: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
+              {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
+            </span>
+          </FloatingLabel>
+
+          {/* Forgot Password */}
+          <Link className='custom-link' to="/forgot-password">Forgot Password?</Link>
+
+          {/* Submit Button */}
+          <ButtonComponent 
+            text={isPending ? "Logging in..." : "Log In"} 
+            variant="login"
+            loading={isPending}
+          />
+
+        </form>
+
+        <SocialButtons />
+
+        <div className="under-text" style={{ textAlign: 'center', paddingTop: '20px' }}>
+          <p>
+            Don't have an account? <Link className='custom-link' to="/signup">Sign up</Link>
+          </p>
+        </div>
+
       </div>
-  )
+    </div>
+  );
 }
 
-export default LoginComponent
+export default LoginComponent;
