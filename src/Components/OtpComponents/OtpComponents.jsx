@@ -1,107 +1,269 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Otp.css";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import {
+    verifySignupOTP,
+    verifyLoginOTP,
+    verifyOtp,
+    resendOtp
+} from "../../Api/Authapi";
+import { toast } from "react-toastify";
+import { useMutation } from "@tanstack/react-query";
 
 function OtpComponents() {
-    const length = 6;
-    const inputs = useRef([]);
-    const [otp, setOtp] = useState(Array(length).fill(""));
+  const length = 6;
+  const RESEND_TIME = 30;
 
-    const handleChange = (e, index) => {
-        const value = e.target.value;
+  const inputs = useRef([]);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-        if (!/^[0-9]?$/.test(value)) return;
+  // ✅ Get state/localStorage data
+  const stateData = location.state || {};
+  const storedData = JSON.parse(localStorage.getItem("otpData")) || {};
 
-        const newOtp = [...otp];
-        newOtp[index] = value;
-        setOtp(newOtp);
+  const type = stateData.type || storedData.type;
+  const email = stateData.email || storedData.email;
+  const phone = stateData.phone || storedData.phone;
 
-        // Move forward
-        if (value && index < length - 1) {
-        inputs.current[index + 1]?.focus();
-        }
-    };
+  // ✅ OTP state
+  const [otp, setOtp] = useState(Array(length).fill(""));
 
-    const handleKeyDown = (e, index) => {
-        // Move back on empty backspace
-        if (e.key === "Backspace" && !otp[index] && index > 0) {
-        inputs.current[index - 1]?.focus();
-        }
-    };
+  // ✅ Timer state (persistent on refresh)
+  const [timer, setTimer] = useState(() => {
+    const savedTime = localStorage.getItem("otpTimer");
 
-    const handlePaste = (e) => {
-        e.preventDefault();
+    if (savedTime) {
+      const diff = Math.floor((Number(savedTime) - Date.now()) / 1000);
 
-        const pasteData = e.clipboardData
-        .getData("text")
-        .trim()
-        .slice(0, length);
+      return diff > 0 ? diff : 0;
+    }
 
-        if (!/^\d+$/.test(pasteData)) return;
+    return RESEND_TIME;
+  });
 
-        const newOtp = pasteData.split("");
+  // ✅ Prevent direct access
+  useEffect(() => {
+    if (!type || (!email && !phone)) {
+      navigate("/login", { replace: true });
+    }
+  }, [type, email, phone, navigate]);
 
-        // fill remaining if less than length
-        while (newOtp.length < length) newOtp.push("");
+  // ✅ Timer countdown
+  useEffect(() => {
+    if (timer <= 0) return;
 
-        setOtp(newOtp);
+    const interval = setInterval(() => {
+      setTimer((prev) => prev - 1);
+    }, 1000);
 
-        // focus next empty or last
-        const nextIndex = newOtp.findIndex((v) => v === "");
-        const focusIndex = nextIndex === -1 ? length - 1 : nextIndex;
+    return () => clearInterval(interval);
+  }, [timer]);
 
-        inputs.current[focusIndex]?.focus();
-    };
+  // ✅ Save timer to localStorage
+  useEffect(() => {
+    if (timer > 0) {
+      localStorage.setItem("otpTimer", Date.now() + timer * 1000);
+    } else {
+      localStorage.removeItem("otpTimer");
+    }
+  }, [timer]);
 
-    const handleSubmit = () => {
-        const finalOtp = otp.join("");
+  // 🔥 Verify OTP Mutation
+  const { mutate, isPending } = useMutation({
+    mutationFn: async ({ otp }) => {
+      if (type === "login") {
+        return await verifyLoginOTP({
+          email,
+          phone,
+          otp,
+        });
+      } else if (type === "signup") {
+        return await verifySignupOTP({
+          email,
+          phone,
+          otp,
+        });
+      } else {
+        return await verifyOtp({
+          email,
+          phone,
+          otp,
+        });
+      }
+    },
 
-        if (otp.some((digit) => digit === "")) {
-        alert("Please enter complete OTP");
-        return;
-        }
+    onSuccess: (res) => {
+      toast.success("OTP Verified!");
 
-        console.log("OTP Entered:", finalOtp);
+      // ✅ Save token
+      const token = res?.accessToken || res?.token;
 
-        // 👉 Add your API call here
-        alert("OTP Verified Successfully!");
-    };
+      if (token) {
+        localStorage.setItem("accessToken", token);
+      }
 
-    return (
-        <div className="cover">
-            <div className="wrapper">
-                <h1 className='big-text'>OTP Verification</h1>
-                <p className='sm-text'>Please enter the 6-digit code sent to your email.</p>
+      // ✅ Cleanup
+      localStorage.removeItem("otpData");
+      localStorage.removeItem("otpTimer");
 
-                <div className="otp-container" onPaste={handlePaste}>
-                {Array.from({ length }).map((_, index) => (
-                    <input
-                    key={index}
-                    type="text"
-                    maxLength="1"
-                    className="otp-input"
-                    value={otp[index]}
-                    onChange={(e) => handleChange(e, index)}
-                    onKeyDown={(e) => handleKeyDown(e, index)}
-                    ref={(el) => (inputs.current[index] = el)}
-                    />
-                ))}
-                </div>
- 
-                <p className="resend-otp">
-                    Didn't receive the code? <Link to="/resend-otp">Resend OTP</Link>
-                </p>
+      if (type === "signup") {
+        navigate("/login");
+      }else {
+        navigate("/dashboard");
+      }
+    },
 
-                <ButtonComponent
-                text="Verify OTP"
-                variant="otp"
-                onClick={handleSubmit}
-                />
+    onError: (err) => {
+      toast.error(err?.response?.data?.message || "Invalid OTP");
+    },
+  });
 
-            </div>
+  // 🔥 Resend OTP Mutation
+  const { mutate: resendMutate, isPending: resendPending } = useMutation({
+    mutationFn: resendOtp,
+
+    onSuccess: (res) => {
+      toast.success(res?.message || "OTP Resent Successfully!");
+
+      // ✅ restart timer
+      setTimer(RESEND_TIME);
+    },
+
+    onError: (err) => {
+      toast.error(err?.response?.data?.message || "Failed to resend OTP");
+    },
+  });
+
+  // 🔹 Handle input change
+  const handleChange = (e, index) => {
+    const value = e.target.value;
+
+    // allow only single digit
+    if (!/^[0-9]?$/.test(value)) return;
+
+    const newOtp = [...otp];
+    newOtp[index] = value;
+
+    setOtp(newOtp);
+
+    // move forward
+    if (value && index < length - 1) {
+      inputs.current[index + 1]?.focus();
+    }
+  };
+
+  // 🔹 Backspace focus
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace" && !otp[index] && index > 0) {
+      inputs.current[index - 1]?.focus();
+    }
+  };
+
+  // 🔹 Paste support
+  const handlePaste = (e) => {
+    e.preventDefault();
+
+    const pastedData = e.clipboardData.getData("text").trim().slice(0, length);
+
+    if (!/^\d+$/.test(pastedData)) return;
+
+    const newOtp = pastedData.split("");
+
+    while (newOtp.length < length) {
+      newOtp.push("");
+    }
+
+    setOtp(newOtp);
+
+    const focusIndex =
+      newOtp.findIndex((digit) => digit === "") === -1
+        ? length - 1
+        : newOtp.findIndex((digit) => digit === "");
+
+    inputs.current[focusIndex]?.focus();
+  };
+
+  // 🔹 Submit OTP
+  const handleSubmit = () => {
+    const finalOtp = otp.join("");
+
+    if (otp.includes("")) {
+      toast.error("Enter complete OTP");
+      return;
+    }
+
+    mutate({ otp: finalOtp });
+  };
+
+  // 🔹 Resend OTP
+  const handleResendOtp = () => {
+    if (timer > 0) return;
+
+    resendMutate({
+      email,
+      phone,
+      type,
+    });
+  };
+
+  // ✅ Mask email/phone
+  const maskedEmail = email ? email.replace(/(.{2}).+(@.+)/, "$1****$2") : "";
+
+  const maskedPhone = phone
+    ? phone.replace(/(\d{2})\d{6}(\d{2})/, "$1******$2")
+    : "";
+
+  return (
+    <div className="cover">
+      <div className="wrapper">
+        <h1 className="big-text">OTP Verification</h1>
+
+        <p className="sm-text">OTP sent to {maskedEmail || maskedPhone}</p>
+
+        {/* OTP Inputs */}
+        <div className="otp-container" onPaste={handlePaste}>
+          {Array.from({ length }).map((_, index) => (
+            <input
+              key={index}
+              type="text"
+              maxLength="1"
+              value={otp[index]}
+              onChange={(e) => handleChange(e, index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
+              ref={(el) => (inputs.current[index] = el)}
+              className="otp-input"
+            />
+          ))}
         </div>
-    );
+
+        {/* Resend OTP */}
+        <div className="resend-wrapper">
+          {timer > 0 ? (
+            <p className="timer-text">Resend OTP in {timer}s</p>
+          ) : (
+            <button
+              type="button"
+              className="resend-btn"
+              onClick={handleResendOtp}
+              disabled={resendPending}
+            >
+              {resendPending ? "Sending..." : "Resend OTP"}
+            </button>
+          )}
+        </div>
+
+        {/* Verify Button */}
+        <ButtonComponent
+          text={isPending ? "Verifying..." : "Verify OTP"}
+          variant="otp"
+          onClick={handleSubmit}
+          disabled={isPending}
+        />
+      </div>
+    </div>
+  );
 }
 
 export default OtpComponents;

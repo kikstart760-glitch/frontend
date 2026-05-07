@@ -138,8 +138,6 @@ export const refreshToken = async () => {
       message: error.message,
       status: error.response?.status,
       data: error.response?.data,
-      url: error.config?.url,
-      baseURL: error.config?.baseURL
     });
     throw error;
   }

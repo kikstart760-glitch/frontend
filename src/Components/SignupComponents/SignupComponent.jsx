@@ -101,13 +101,30 @@ function SignupComponent() {
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: signUp,
     onSuccess: (data) => {
+
+      const otpData = {
+        type: "signup",
+        email: formData.email,
+        phone: formData.phone
+      };
+      localStorage.setItem("otpData", JSON.stringify(otpData));
+
       if (data?.redirectToOtp) {
-        toast.error(data.message);
-        navigate("/otp");
+        toast.info(data.message);
+        navigate("/otp", {
+          state: {
+            otpData
+          }
+        });
         return;
+
       }else {
         toast.success("Signup Successful!");
-        navigate("/otp");
+        navigate("/otp" ,{
+          state: {
+            otpData
+          }
+        });
       }
     },
     onError: (error) => {

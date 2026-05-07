@@ -47,6 +47,16 @@
     padding-bottom: 5px;
 }
 
+.resend-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.timer-text {
+  color: #666;
+  font-size: 14px;
+}
+
 .big-text{
     margin: 0 !important;
     padding: 0 !important;
