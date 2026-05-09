@@ -85,7 +85,7 @@ function OtpComponents() {
           phone,
           otp,
         });
-      } else {
+      } else if (type === "forgot-password") {
         return await verifyOtp({
           email,
           phone,
@@ -110,7 +110,9 @@ function OtpComponents() {
 
       if (type === "signup") {
         navigate("/login");
-      }else {
+      }else if (type === "forgot-password") {
+        navigate(`/reset-password/${res.resetToken}`);
+      } else {
         navigate("/dashboard");
       }
     },

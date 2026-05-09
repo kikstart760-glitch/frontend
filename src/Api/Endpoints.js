@@ -2,7 +2,7 @@ export const Auth_ENDPOINTS = {
     SIGNUP: "/sign-up",
     LOGIN: "/login",
     FORGOT_PASSWORD: "/forgot-password",
-    RESET_PASSWORD: "/reset-password",
+    RESET_PASSWORD: (token) => `/reset-password/${token}`,
 
     RESEND_OTP: "/resend-otp",
 

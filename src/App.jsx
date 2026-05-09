@@ -20,7 +20,7 @@ function App() {
             <Route path="/login" element={<Login/>} />
             <Route path="/otp" element={<Otp/>} />
             <Route path="/forgot-password" element={<Forgotpassword/>} />
-            <Route path="/reset-password" element={<Resetpassword/>} />
+            <Route path="/reset-password/:token" element={<Resetpassword/>} />
           </Route>
 
           <Route path="/" element={<MainLayout/>}>

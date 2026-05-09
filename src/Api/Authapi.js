@@ -49,9 +49,13 @@ export const forgotPassword = async (data) => {
   }
 };
 
-export const resetPassword = async (data) => {
+export const resetPassword = async ({
+  token,
+  password,
+  confirmPassword
+}) => {
   try {
-    const res = await api.post(Auth_ENDPOINTS.RESET_PASSWORD, data);
+    const res = await api.post(Auth_ENDPOINTS.RESET_PASSWORD(token), { password, confirmPassword });
     return res.data;
   } catch (error) {
     console.error("Reset Password API Error:", {
