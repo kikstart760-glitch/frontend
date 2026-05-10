@@ -9,6 +9,7 @@ import About from "./Pages/About";
 import Otp from "./Pages/Otp";
 import Forgotpassword from "./Pages/Forgotpassword";
 import Resetpassword from "./Pages/Resetpassword";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           </Route>
 
           <Route path="/" element={<MainLayout/>}>
+            <Route path="/dashboard" element={<Dashboard/>} />
             <Route index element={<Home/>} />
             <Route path="/about" element={<About />} />
           </Route>

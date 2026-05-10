@@ -104,6 +104,14 @@ function OtpComponents() {
         localStorage.setItem("accessToken", token);
       }
 
+      // ✅ Save user data
+      if (res?.user) {
+        localStorage.setItem(
+          "user",
+          JSON.stringify(res.user)
+        );
+      }
+
       // ✅ Cleanup
       localStorage.removeItem("otpData");
       localStorage.removeItem("otpTimer");
