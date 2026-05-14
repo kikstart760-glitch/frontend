@@ -1,0 +1,54 @@
+.custom-navbar {
+  background-color: #000; /* BLACK */
+  padding: 14px 0;
+}
+
+/* LOGO */
+.logo-img {
+  width: 120px;
+  cursor: pointer;
+}
+
+/* NAV LINKS */
+.nav-center .nav-link {
+  color: #eae4e4 !important;
+  margin: 0 14px;
+  font-weight: 500;
+  position: relative;
+}
+
+/* HOVER EFFECT (nice modern underline) */
+.nav-center .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00cfff;
+  transition: 0.3s;
+}
+
+.nav-center .nav-link:hover::after {
+  width: 100%;
+}
+
+/* BUTTON */
+.consult-btn {
+  background: #00cfff;
+  color: #f5f3f3;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.consult-btn:hover {
+  background: #00a8d6;
+}
+
+/* DROPDOWN FIX */
+.navbar .dropdown-menu {
+  right: 0;
+}

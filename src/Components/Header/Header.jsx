@@ -5,137 +5,93 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useMutation } from '@tanstack/react-query';
-
 import { FaUserCircle } from "react-icons/fa";
 
-import ButtonComponent from '../ButtonComponent/ButtonComponent';
+import logo from '../../assets/logo.png';
+import '../Header/Header.css';
+
 import { logout, logoutAll } from '../../Api/Authapi';
 
 function Header() {
-
   const navigate = useNavigate();
 
-  // ✅ user from localStorage
   const user = JSON.parse(localStorage.getItem("user"));
-
-  // ✅ login check
   const isLoggedIn = !!user;
 
-  // ---------------- LOGOUT ----------------
   const logoutMutation = useMutation({
     mutationFn: logout,
     onSuccess: () => {
-
       localStorage.removeItem("user");
       localStorage.removeItem("accessToken");
-
       navigate("/login");
     }
   });
 
-  // ---------------- LOGOUT ALL ----------------
   const logoutAllMutation = useMutation({
     mutationFn: logoutAll,
     onSuccess: () => {
-
       localStorage.removeItem("user");
       localStorage.removeItem("accessToken");
-
       navigate("/login");
     }
   });
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary shadow-sm">
+    <Navbar expand="lg" className="custom-navbar">
       <Container>
 
-        {/* LEFT SIDE */}
-        <div className="d-flex align-items-center gap-3">
+        {/* LOGO ONLY */}
+        <Navbar.Brand onClick={() => navigate("/")}>
+          <img src={logo} alt="logo" className="logo-img" />
+        </Navbar.Brand>
 
-          <Navbar.Brand
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate("/")}
-          >
-            MyApp
-          </Navbar.Brand>
+        <Navbar.Toggle />
 
-          {/* LOGIN / LOGOUT BUTTON */}
-          {!isLoggedIn ? (
-            <ButtonComponent
-              text="Login"
-              variant="signup"
-              type="button"
-              onClick={() => navigate("/login")}
-            />
-          ) : (
-            <ButtonComponent
-              text="Logout"
-              variant="signup"
-              type="button"
-              loading={logoutMutation.isPending}
-              onClick={() => logoutMutation.mutate()}
-            />
-          )}
-
-        </div>
-
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse>
 
           {/* CENTER NAV */}
-          <Nav className="mx-auto">
-            <Nav.Link onClick={() => navigate("/")}>
-              Home
-            </Nav.Link>
-
-            <Nav.Link onClick={() => navigate("/about")}>
-              About
-            </Nav.Link>
+          <Nav className="mx-auto nav-center">
+            <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
+            <Nav.Link onClick={() => navigate("/company")}>Company Info</Nav.Link>
+            <Nav.Link onClick={() => navigate("/about")}>About Me</Nav.Link>
+            <Nav.Link onClick={() => navigate("/blog")}>Travel Blog</Nav.Link>
           </Nav>
 
-          {/* USER SECTION */}
-          {isLoggedIn && (
-            <Nav>
+          {/* RIGHT SIDE */}
+          <div className="d-flex align-items-center gap-3">
 
+            {!isLoggedIn ? (
+              <button
+                className="consult-btn"
+                onClick={() => navigate("/login")}
+              >
+                Login
+              </button>
+            ) : (
               <NavDropdown
                 align="end"
-                id="user-dropdown"
                 title={
-                  <span className="d-flex align-items-center gap-2">
-
-                    {/* React Icon */}
-                    <FaUserCircle size={24} />
-
-                    {/* Username */}
-                    <span>{user?.name}</span>
-
+                  <span className="d-flex align-items-center gap-2 text-white">
+                    <FaUserCircle size={22} />
+                    {user?.name}
                   </span>
                 }
               >
-
-                <NavDropdown.Item
-                  onClick={() => navigate("/profile")}
-                >
+                <NavDropdown.Item onClick={() => navigate("/profile")}>
                   Profile
                 </NavDropdown.Item>
 
-                <NavDropdown.Item
-                  onClick={() => logoutMutation.mutate()}
-                >
+                <NavDropdown.Item onClick={() => logoutMutation.mutate()}>
                   Logout
                 </NavDropdown.Item>
 
-                <NavDropdown.Item
-                  onClick={() => logoutAllMutation.mutate()}
-                >
+                <NavDropdown.Item onClick={() => logoutAllMutation.mutate()}>
                   Logout All Devices
                 </NavDropdown.Item>
-
               </NavDropdown>
+            )}
 
-            </Nav>
-          )}
+          </div>
 
         </Navbar.Collapse>
       </Container>
