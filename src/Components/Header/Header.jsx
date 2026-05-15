@@ -40,7 +40,7 @@ function Header() {
     <Navbar expand="lg" className="custom-navbar">
       <Container>
 
-        {/* LOGO ONLY */}
+        {/* LOGO */}
         <Navbar.Brand onClick={() => navigate("/")}>
           <img src={logo} alt="logo" className="logo-img" />
         </Navbar.Brand>
@@ -61,12 +61,23 @@ function Header() {
           <div className="d-flex align-items-center gap-3">
 
             {!isLoggedIn ? (
-              <button
-                className="consult-btn"
-                onClick={() => navigate("/login")}
-              >
-                Login
-              </button>
+              <>
+                {/* SIGN UP */}
+                <button
+                  className="signup-btn"
+                  onClick={() => navigate("/signup")}
+                >
+                  Sign Up
+                </button>
+
+                {/* LOGIN */}
+                <button
+                  className="consult-btn"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </button>
+              </>
             ) : (
               <NavDropdown
                 align="end"
