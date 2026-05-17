@@ -13,7 +13,7 @@ import { useMutation } from "@tanstack/react-query";
 
 function OtpComponents() {
   const length = 6;
-  const RESEND_TIME = 30;
+  const RESEND_TIME = 60;
 
   const inputs = useRef([]);
   const navigate = useNavigate();
