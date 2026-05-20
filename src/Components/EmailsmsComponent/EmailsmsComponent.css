@@ -1,0 +1,46 @@
+.cover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.animation-box{
+  text-align: center;
+}
+
+
+/* TEXT */
+.email-title {
+  text-align: center;
+  font-family: "kumbh-sans", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.email-subtitle {
+  color: #6c757d;
+  text-align: center;
+  font-family: "kumbh-sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* BUTTON */
+.open-btn {
+  background-color: #00cfff;
+  color: #f0ecec;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  margin: 0 auto;
+  font-family: "kumbh-sans", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.open-btn:hover {
+  background: #0184b8;
+}

@@ -13,6 +13,10 @@
 .reset-page-container{
     min-width: 100%;
 }
+.emailsms-container{
+    min-width: 100%;
+}
+
 .custom-link{
     color: #4a90e2;
     text-decoration: none;

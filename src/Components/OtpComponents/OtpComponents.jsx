@@ -119,7 +119,7 @@ function OtpComponents() {
       if (type === "signup") {
         navigate("/login");
       }else if (type === "forgot-password") {
-        navigate(`/reset-password/${res.resetToken}`);
+        navigate(`/emailsms`);
       } else {
         navigate("/dashboard");
       }
