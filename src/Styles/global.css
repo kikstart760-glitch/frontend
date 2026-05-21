@@ -17,6 +17,12 @@
     min-width: 100%;
 }
 
+.back{
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: -90px;
+}
+
 .custom-link{
     color: #4a90e2;
     text-decoration: none;

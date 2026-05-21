@@ -1,7 +1,16 @@
 /* NAVBAR */
+
 .custom-navbar {
-  background-color: #000;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   padding: 14px 0;
+  z-index: 1000;
+}
+
+.navbar-scrolled {
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* LOGO */

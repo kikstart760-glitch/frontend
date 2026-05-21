@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect , useState }from 'react';
 import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -17,6 +17,20 @@ function Header() {
 
   const user = JSON.parse(localStorage.getItem("user"));
   const isLoggedIn = !!user;
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () =>  window.removeEventListener("scroll", handleScroll); 
+  }, []);
+
+  console.log (isScrolled);
 
   const logoutMutation = useMutation({
     mutationFn: logout,
@@ -37,7 +51,11 @@ function Header() {
   });
 
   return (
-    <Navbar expand="lg" className="custom-navbar">
+    <Navbar
+      expand="lg"
+      sticky="top"
+      className={`custom-navbar ${isScrolled ? "navbar-scrolled" : ""}`}
+    >
       <Container>
 
         {/* LOGO */}

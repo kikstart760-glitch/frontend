@@ -6,10 +6,16 @@ function BannerComponent() {
   return (
     <div className='banner-cover'>
       <div className="content">
-            <p>Luxury Travel Reimagined</p>
-            <h1 className="banner-title">Welcome to Kikstart</h1>
-            <p className="banner-subtitle">Your one-stop solution for all your needs</p>
-        </div>
+        <p className="banner-description">Luxury Travel Reimagined</p>
+        <h1 className="banner-title">
+          Recharge, Rejuvenate, and <br /> 
+          Rediscover Your Passion for Life.
+        </h1>
+        <p className="banner-subtitle">
+          "Escape the Ordinary, Embrace the Extraordinary: Luxury Travel <br /> 
+            Experiences for Professionals Seeking Balance."
+        </p>
+      </div>
     </div>
   )
 }
