@@ -22,15 +22,24 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      console.log("scrolling...");
+      console.log(window.scrollY);
+
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    return () =>  window.removeEventListener("scroll", handleScroll); 
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  console.log (isScrolled);
+  console.log(isScrolled);
 
   const logoutMutation = useMutation({
     mutationFn: logout,
@@ -53,31 +62,30 @@ function Header() {
   return (
     <Navbar
       expand="lg"
-      sticky="top"
+      fixed="top"
       className={`custom-navbar ${isScrolled ? "navbar-scrolled" : ""}`}
     >
       <Container>
-
         {/* LOGO */}
         <Navbar.Brand onClick={() => navigate("/")}>
           <img src={logo} alt="logo" className="logo-img" />
         </Navbar.Brand>
 
-        <Navbar.Toggle />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-        <Navbar.Collapse>
-
+        <Navbar.Collapse id="basic-navbar-nav">
           {/* CENTER NAV */}
           <Nav className="mx-auto nav-center">
             <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
-            <Nav.Link onClick={() => navigate("/company")}>Company Info</Nav.Link>
+            <Nav.Link onClick={() => navigate("/company")}>
+              Company Info
+            </Nav.Link>
             <Nav.Link onClick={() => navigate("/about")}>About Me</Nav.Link>
             <Nav.Link onClick={() => navigate("/blog")}>Travel Blog</Nav.Link>
           </Nav>
 
           {/* RIGHT SIDE */}
           <div className="d-flex align-items-center gap-3">
-
             {!isLoggedIn ? (
               <>
                 {/* SIGN UP */}
@@ -119,9 +127,7 @@ function Header() {
                 </NavDropdown.Item>
               </NavDropdown>
             )}
-
           </div>
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

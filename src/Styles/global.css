@@ -18,9 +18,11 @@
 }
 
 .back{
+    background-image: url('../assets//nav\ bg.png');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    margin-top: -90px;
+    min-height: 100vh;
 }
 
 .custom-link{

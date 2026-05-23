@@ -20,17 +20,21 @@ p.banner-description{
     font-family: "Sawarabi Mincho", serif;
     font-weight: 400;
     font-size: 18px;
+    letter-spacing: 21.5%;
     color: #FFFFFF;
+    line-height: 111.9%;
 }
 h1.banner-title{
     font-family: "Sawarabi Mincho", serif;
     font-weight: 400;
     font-size: 50px;
     color: #FFFFFF;
+    line-height: 111.9%;
 }
 p.banner-subtitle{
     font-family: "kumbh-sans", sans-serif;
     font-weight: 500;
     font-size: 20px;
     color: #FFFFFF;
+    line-height: 151.4%;
 }

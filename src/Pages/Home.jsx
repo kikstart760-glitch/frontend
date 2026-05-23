@@ -5,7 +5,7 @@ import bgImg from '../assets/nav bg.png'
 
 function Home() {
   return (
-    <div className="back" style={{ backgroundImage: `url(${bgImg})` }}>
+    <div className="back">
       <div className='container'>
         <BannerComponent/>
       </div>
