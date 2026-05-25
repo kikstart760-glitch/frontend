@@ -1,0 +1,58 @@
+.hero-section {
+  /* width: 100%; */
+  /* min-height: 80vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.hero-overlay {
+  max-width: 900px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  color: #01AEF0;
+  font-weight: 500;
+  font-family:"Sawarabi Mincho", serif;
+  font-size: 18px;
+  line-height: 111.9%;
+  letter-spacing: 21.5%;
+}
+
+.hero-title {
+  font-size: 40px;
+  font-weight: 500;
+  color: #2d2d2d;
+  margin-bottom: 25px;
+  font-family: "Sawarabi Mincho", serif;
+}
+
+.hero-description {
+  font-family:"kumbh Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #565555;
+  line-height: 25px;
+  margin-bottom: 15px;
+}
+
+.learn-btn {
+  background: #01AEF0;
+  border: none;
+  padding: 12px 23px;
+  transition: 0.3s;
+  font-family: "kumbh sans", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+
+/* Hover effect */
+.learn-btn:hover {
+   background: #0184b8;
+}
+.button-container {
+  margin-top: 25px;
+}

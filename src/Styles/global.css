@@ -33,3 +33,11 @@
 .custom-link:hover {
     color: #1a5a9c;
 }
+
+.back2{
+    background-image: url('../assets/bg2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 540px;
+}
