@@ -38,21 +38,6 @@
   margin-bottom: 15px;
 }
 
-.learn-btn {
-  background: #01AEF0;
-  border: none;
-  padding: 12px 23px;
-  transition: 0.3s;
-  font-family: "kumbh sans", sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  color: #FFFFFF;
-}
-
-/* Hover effect */
-.learn-btn:hover {
-   background: #0184b8;
-}
 .button-container {
   margin-top: 25px;
 }

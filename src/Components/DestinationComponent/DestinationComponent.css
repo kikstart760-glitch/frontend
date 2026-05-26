@@ -1,0 +1,60 @@
+.travel{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2.travel-title{
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.item {
+    padding: 40px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 450px;
+}
+
+.item img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.item h4 {
+    margin-top: 18px;
+    font-weight: 500;
+    color: #333;
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.item p {
+    line-height: 21.5px;
+    padding: 0 10px;
+    flex-grow: 1;
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #565555;
+}
+
+.item span {
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #01AEF0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.item span:hover {
+    color: #046084;
+}
+
+

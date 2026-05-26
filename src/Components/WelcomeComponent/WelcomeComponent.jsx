@@ -1,5 +1,6 @@
 import React from 'react'
 import '../WelcomeComponent/WelcomeComponent.css'
+import Button2Component from '../Button2Component/Button2Component'
 
 function WelcomeComponent() {
     return (
@@ -31,7 +32,7 @@ function WelcomeComponent() {
                 </p>
 
                  <div className="button-container">
-                     <button className="learn-btn">Learn More</button>
+                     <Button2Component text="Learn More" path="/destinations" />
                  </div>
             </div>
         </section>
