@@ -1,4 +1,5 @@
 .travel{
+    padding-top: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,7 +17,7 @@ h2.travel-title{
     text-align: center;
     display: flex;
     flex-direction: column;
-    min-height: 450px;
+    min-height: 524px;
 }
 
 .item img {
