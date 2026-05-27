@@ -26,6 +26,9 @@ function Home() {
         <DestinationComponent/> 
       </div>
       <div className="container">
+      <AboutComponent/>
+      </div>
+      <div className="container">
         <NewsComponent/>
       </div>
       <div className="back3">
@@ -38,9 +41,6 @@ function Home() {
           <BrandsComponents/>
         </div>
       </div>
-    <div className="container">
-      <AboutComponent/>
-    </div>
     </>
   )
 }
