@@ -1,0 +1,73 @@
+.news-component {
+    text-align: center;
+    padding: 40px 0 30px 0;
+}
+
+.news-component h2{
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.news-component p {
+    line-height: 25px;
+    padding: 0 10px;
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #565555;
+}
+
+.all-news-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+
+.news-card {
+    max-width: 360px;
+}
+
+.news-date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0 10px 0;
+    gap: 8px;
+}
+
+.news-date span {
+    font-family: "kumbh Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #01AEF0;
+}
+
+.news-title h5 {
+    font-family: "kumbh Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #212121;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.news-description p {
+    line-height: 25px;
+    padding: 0 10px;
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #565555;
+    text-align: center;
+}
+
+.news-button {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+}

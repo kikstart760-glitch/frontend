@@ -11,6 +11,7 @@ import Forgotpassword from "./Pages/Forgotpassword";
 import Resetpassword from "./Pages/Resetpassword";
 import Dashboard from "./Pages/Dashboard";
 import Emailsms from "./Pages/Emailsms";
+import ProtectedRoute from "./Helper/ProtectedRoute";
 
 function App() {
   return (
@@ -27,7 +28,9 @@ function App() {
           </Route>
 
           <Route path="/" element={<MainLayout/>}>
-            <Route path="/dashboard" element={<Dashboard/>} />
+            <Route element={<ProtectedRoute/>}>
+              <Route path="/dashboard" element={<Dashboard/>} />
+            </Route>
             <Route index element={<Home/>} />
             <Route path="/about" element={<About />} />
           </Route>

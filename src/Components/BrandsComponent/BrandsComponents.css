@@ -1,0 +1,17 @@
+.brands-wrapper{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.brands-wrapper p {
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    letter-spacing: 9.5%;
+    text-transform: uppercase;
+}

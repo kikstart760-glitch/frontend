@@ -1,0 +1,58 @@
+.img-fluid{
+    max-width: fit-content;
+}
+
+
+.get-started-left h2{
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #ffffff;
+    padding-top: 100px;
+}
+
+.get-started-left p{
+    line-height: 25px;
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.custom-form-control {
+    background: transparent;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 !important;
+    color: #ffffff !important;
+    padding-left: 0 !important;
+    padding-bottom: 20px !important;
+    box-shadow: none;
+    font-family:"Sawarabi Mincho", serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.custom-form-control::placeholder {
+  color: #d6d6d6 !important;
+}
+
+.custom-form-control:focus {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+
+.custom-message-box {
+  resize: none;
+}
+
+.custom-form-wrapper {
+  max-width: 75%;
+}
+
+.button-wrapper {
+    margin-top: 25px;
+}

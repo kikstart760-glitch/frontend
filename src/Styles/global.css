@@ -41,3 +41,15 @@
     background-repeat: no-repeat;
     height: 540px;
 }
+
+.back3{
+    background-image: url('../assets/from-back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 718px;
+}
+
+.back4{
+    background-color: #08A1DC;
+}
