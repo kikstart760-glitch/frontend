@@ -4,6 +4,7 @@ import BannerComponent from '../Components/BannerComponent/BannerComponent'
 import bgImg from '../assets/nav bg.png'
 import WelcomeComponent from '../Components/WelcomeComponent/WelcomeComponent'
 import DestinationComponent from '../Components/DestinationComponent/DestinationComponent'
+import AboutComponent from '../Components/AboutComponent/AboutComponent'
 
 function Home() {
   return (
@@ -20,6 +21,9 @@ function Home() {
     </div>
     <div className="container">
       <DestinationComponent/> 
+    </div>
+    <div className="container">
+      <AboutComponent/>
     </div>
     </>
   )
