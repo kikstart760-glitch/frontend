@@ -8,6 +8,7 @@ import NewsComponent from '../Components/NewsComponent/NewsComponent'
 import GetStarted from '../Components/GetStarted/GetStarted'
 import BrandsComponents from '../Components/BrandsComponent/BrandsComponents'
 import AboutComponent from '../Components/AboutComponent/AboutComponent'
+import InstaComponent from '../Components/InstaComponent/InstaComponent'
 
 function Home() {
   return (
@@ -30,6 +31,9 @@ function Home() {
       </div>
       <div className="container">
         <NewsComponent/>
+      </div>
+      <div className="instagram">
+        <InstaComponent/>
       </div>
       <div className="back3">
         <div className="container">

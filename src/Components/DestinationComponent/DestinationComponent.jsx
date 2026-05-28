@@ -1,9 +1,8 @@
 import React from 'react'
 import '../DestinationComponent/DestinationComponent.css'
 import { Swiper, SwiperSlide } from "swiper/react";
-// Swiper styles
 import "swiper/css";
-import { Navigation, Autoplay } from "swiper/modules";
+import {  Autoplay } from "swiper/modules";
 import img1 from '../../assets/travel1.png'
 import img2 from '../../assets/travel2.png'
 import img3 from '../../assets/travel3.png'

@@ -5,6 +5,8 @@ import Button2Component from '../Button2Component/Button2Component';
 
 function AboutComponent() {
   return (
+    <>
+    <h2 className="about-heading">About me</h2>
     <div className="about-cover">
       <div className="about-content">
 
@@ -43,6 +45,7 @@ function AboutComponent() {
 
       </div>
     </div>
+    </>
   );
 }
 
