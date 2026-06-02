@@ -1,20 +1,13 @@
 import React from 'react'
 import '../BannerComponent/BannerComponent.css'
-import bgimg from '../../assets/nav bg.png'
 
-function BannerComponent() {
+function BannerComponent( { title, subtitle, description } ) {
   return (
     <div className='banner-cover'>
       <div className="content">
-        <p className="banner-description">Luxury Travel Reimagined</p>
-        <h1 className="banner-title">
-          Recharge, Rejuvenate, and <br /> 
-          Rediscover Your Passion for Life.
-        </h1>
-        <p className="banner-subtitle">
-          "Escape the Ordinary, Embrace the Extraordinary: Luxury Travel <br /> 
-            Experiences for Professionals Seeking Balance."
-        </p>
+        {description ? <p className="banner-description">{description}</p> : null}
+        {title ? <h1 className="banner-title">{title}</h1> : null}
+        {subtitle ? <p className="banner-subtitle">{subtitle}</p> : null}
       </div>
     </div>
   )

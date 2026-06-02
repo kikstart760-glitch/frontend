@@ -53,6 +53,13 @@
 .back4{
     background-color: #08A1DC;
 }
+.back5{
+    background-image: url('../assets/book_cover.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 543px;
+}
 .instagram{
     padding: 40px 35px 80px 35px;
 }

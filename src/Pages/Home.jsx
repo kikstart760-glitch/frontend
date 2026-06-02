@@ -15,7 +15,12 @@ function Home() {
     <>
       <div className="back">
         <div className='container'>
-          <BannerComponent/>
+          <BannerComponent 
+            description="Luxury Travel Reimagined"
+            title={<>Recharge, Rejuvenate, and <br/> Rediscover Your Passion for Life.</>}
+            subtitle={<>"Escape the Ordinary, Embrace the Extraordinary: Luxury Travel
+            <br /> Experiences for Professionals Seeking Balance."</>}
+          />
         </div>
       </div>
       <div className="back2">
