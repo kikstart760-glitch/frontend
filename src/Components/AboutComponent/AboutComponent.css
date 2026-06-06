@@ -7,31 +7,36 @@ h2.about-heading {
 }
 
 .about-cover {
-    display: flex;
-    justify-content: center;
     padding-top: 40px;
     padding-bottom: 60px;
 }
 
 .about-content{ 
-    background-color: #EDFAFF; 
-    width: 85%; 
-    height: 601px; 
-    margin-left: auto; 
-    display: flex; 
-    padding-top: 70px;
+    background-image: url('../../assets/about-lady-back.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    max-height: 601px;
+    padding: 40px 0px 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 85%;
 }
 
 .about-left img {
-    margin-left: -80px;
     height: 497px;
+    width: 85%;
+    margin-left: -100px;
 }
 
 
 /* RIGHT CONTENT */
 .about-right {
     flex: 1;
-    margin-right: 137px;
+    margin-right: 50px;
+    margin-left: -50px;
 }
 
 .about-right h6{

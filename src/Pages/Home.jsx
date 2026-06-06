@@ -32,7 +32,7 @@ function Home() {
         <DestinationComponent/> 
       </div>
       <div className="container">
-      <AboutComponent/>
+        <AboutComponent/>
       </div>
       <div className="container">
         <NewsComponent/>
