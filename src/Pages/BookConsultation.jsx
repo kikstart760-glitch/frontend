@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import BannerComponent from '../Components/BannerComponent/BannerComponent'
 import BookComponent from '../Components/BookComponent/BookComponent'
 import GetStarted from '../Components/GetStarted/GetStarted'
+import BrandsComponents from '../Components/BrandsComponent/BrandsComponents'
 
 function BookConsultation() {
   return (
@@ -16,6 +17,11 @@ function BookConsultation() {
       </div>
       <div className="container">
         <BookComponent />
+      </div>
+      <div className="back4">
+        <div className="container">
+          <BrandsComponents/>
+        </div>
       </div>
     </>
   )
