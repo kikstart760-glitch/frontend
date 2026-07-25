@@ -2,5 +2,105 @@
     background-image: url('../../assets/book_back.png');
     background-position: right;
     background-repeat: no-repeat;
-    height: 689.45px;
+    height: 750px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.book_left{
+    background-color: #08A1DC;
+    padding: 80px 30px 80px 30px;
+    margin-top: 60px;
+    
+}
+.book_left h2{
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.book_left p{
+    line-height: 25px;
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.custom-form-control {
+    background: transparent;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 0 !important;
+    color: #ffffff !important;
+    padding-left: 0 !important;
+    padding-bottom: 20px !important;
+    box-shadow: none;
+    font-family:"Sawarabi Mincho", serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.custom-form-control::placeholder {
+  color: #d6d6d6 !important;
+}
+
+.custom-form-control:focus {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+
+.custom-message-box {
+  resize: none;
+}
+
+.custom-form-wrapper2 {
+  max-width: 100%;
+}
+
+.button-wrapper {
+    margin-top: 25px;
+}
+
+.book_right_content{
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 15px;
+    padding-top: 20px;
+}
+
+
+.book_right{
+    padding: 80px 50px 80px 50px;
+    margin-top: 60px;
+}
+
+.location_text{
+    padding-left: 20px;
+}
+
+.location_text h5{
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+.location_text p{
+    line-height: 25px;
+    font-family:"kumbh Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #565555;
+}
+
+.book_right_pic{
+    padding-top: 60px;
+    text-align: end;
+    padding-right: 100px;
 }
