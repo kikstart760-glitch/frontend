@@ -69,7 +69,7 @@ function DestinationComponent() {
     <>
     <div className="travel">
       <h2 className="travel-title">Beyond travel destinations</h2>
-      <Button2Component text="View all Destinations" path="/destinations" />
+      <Button2Component text="View all Destinations" path="/destination" />
     </div>
       {/* SLIDER */}
       <Swiper

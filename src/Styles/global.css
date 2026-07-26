@@ -63,3 +63,10 @@
 .instagram{
     padding: 40px 35px 80px 35px;
 }
+.back6{
+    background-image: url('../assets/destination.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 543px;
+}

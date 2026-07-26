@@ -13,6 +13,7 @@ import Dashboard from "./Pages/Dashboard";
 import Emailsms from "./Pages/Emailsms";
 import ProtectedRoute from "./Helper/ProtectedRoute";
 import BookConsultation from "./Pages/BookConsultation";
+import Destination from "./Pages/Destination";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route index element={<Home/>} />
             <Route path="/about" element={<About />} />
             <Route path="/book" element={<BookConsultation />} />
+            <Route path="/destination" element={<Destination />} />
           </Route>
         </Routes>
       </Router>
