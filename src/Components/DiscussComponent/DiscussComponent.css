@@ -1,0 +1,29 @@
+/* Image */
+.discuss-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Heading */
+.discuss-title {
+    font-family: "Sawarabi Mincho", serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #212121;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+/* Paragraph */
+.discuss-text {
+    font-family: 'kumbh-sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #565555;
+    margin-bottom: 24px;
+    justify-content: center;
+}
+
+.discuss-cover {
+    padding:0 50px;
+}
