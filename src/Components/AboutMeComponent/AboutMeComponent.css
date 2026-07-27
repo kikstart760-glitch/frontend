@@ -1,0 +1,33 @@
+.aboutme-component{
+    padding: 60px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.aboutme-title{
+    font-family: 'Sawarabi Mincho', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #212121;
+}
+.aboutme-left{
+    padding: 0 30px;
+}
+.aboutme-right p{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #565555;
+    width: 648px;
+}
+.bottom-text p{
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #565555;
+    width: 1141px;
+    padding: 0 20px;
+}

@@ -1,0 +1,26 @@
+.company-component{
+    padding: 60px 0;
+}
+.company-title h2{
+    font-family: "Sawarabi Mincho", serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #212121;
+}
+
+.company-title p{
+    font-family: "Kumbh Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #565555;
+}
+
+.company-right p{
+    font-family: "Kumbh Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #565555;
+    max-width: 500px;
+}

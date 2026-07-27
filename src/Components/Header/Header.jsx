@@ -77,10 +77,10 @@ function Header() {
           {/* CENTER NAV */}
           <Nav className="mx-auto nav-center">
             <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
-            <Nav.Link onClick={() => navigate("/company")}>
+            <Nav.Link onClick={() => navigate("/company-info")}>
               Company Info
             </Nav.Link>
-            <Nav.Link onClick={() => navigate("/about")}>About Me</Nav.Link>
+            <Nav.Link onClick={() => navigate("/about-me")}>About Me</Nav.Link>
             <Nav.Link onClick={() => navigate("/blog")}>Travel Blog</Nav.Link>
           </Nav>
 

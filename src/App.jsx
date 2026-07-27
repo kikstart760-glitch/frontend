@@ -14,6 +14,7 @@ import Emailsms from "./Pages/Emailsms";
 import ProtectedRoute from "./Helper/ProtectedRoute";
 import BookConsultation from "./Pages/BookConsultation";
 import Destination from "./Pages/Destination";
+import CompanyInfo from "./Pages/CompanyInfo";
 
 function App() {
   return (
@@ -34,9 +35,10 @@ function App() {
               <Route path="/dashboard" element={<Dashboard/>} />
             </Route>
             <Route index element={<Home/>} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about-me" element={<About />} />
             <Route path="/book" element={<BookConsultation />} />
             <Route path="/destination" element={<Destination />} />
+            <Route path="/company-info" element={<CompanyInfo />} />
           </Route>
         </Routes>
       </Router>

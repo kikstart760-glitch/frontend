@@ -1,13 +1,38 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import BannerComponent from '../Components/BannerComponent/BannerComponent'
+import AboutMeComponent from '../Components/AboutMeComponent/AboutMeComponent'
+import InstaComponent from '../Components/InstaComponent/InstaComponent'
+import GetStarted from '../Components/GetStarted/GetStarted'
+import BrandsComponents from '../Components/BrandsComponent/BrandsComponents'
 
 function About() {
   return (
-    <div>
-        About Page
-        <br />
-        <Link to="/">Go to Home</Link>
-    </div>
+    <>
+      <div className="back7">
+        <div className="container">
+          <BannerComponent 
+            title={"About me"} 
+            subtitle={<>Welcome to Escape Beyond Travel, where unforgettable journeys <br/>meet personalized luxury.</>}
+          />
+        </div>
+      </div>
+      <div className="container">
+        <AboutMeComponent/>
+      </div>
+      <div className="instagram">
+        <InstaComponent/>
+      </div>
+      <div className="back3">
+        <div className="container">
+          <GetStarted/>
+        </div>
+      </div>
+      <div className="back4">
+        <div className="container">
+          <BrandsComponents/>
+        </div>
+      </div>
+    </>
   )
 }
 

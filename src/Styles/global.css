@@ -70,3 +70,10 @@
     background-repeat: no-repeat;
     height: 543px;
 }
+.back7{
+    background-image: url('../assets/back4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 543px;
+}
