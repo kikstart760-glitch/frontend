@@ -1,19 +1,20 @@
 .travel-items {
-    padding: 40px 0;
-    text-align: center;
+    padding: 40px 15px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
 }
+
 .data {
-    padding: 40px 20px;
-    text-align: center;
+    width: calc(25% - 20px); /* 4 columns */
     display: flex;
-    width: calc((100% - 40px) / 4);
     flex-direction: column;
-    min-height: 524px;
     align-items: center;
-    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    min-height: 520px;
+    box-sizing: border-box;
 }
 
 .data img {
@@ -24,7 +25,6 @@
 .data h4 {
     margin-top: 18px;
     font-weight: 500;
-    color: #333;
     font-family: "Sawarabi Mincho", serif;
     font-size: 18px;
     font-weight: 400;
@@ -32,24 +32,71 @@
 }
 
 .data p {
-    line-height: 21.5px;
-    padding: 0 10px;
     flex-grow: 1;
-    font-family:"kumbh Sans", sans-serif;
-    font-weight: 400;
+    font-family: "Kumbh Sans", sans-serif;
     font-size: 14px;
     color: #565555;
 }
 
 .data span {
-    font-family:"kumbh Sans", sans-serif;
+    font-family: "Kumbh Sans", sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: #01AEF0;
     cursor: pointer;
-    text-decoration: none;
 }
 
 .data span:hover {
     color: #046084;
+}
+
+/* ===========================
+   Large Tablet (3 cards)
+=========================== */
+@media (max-width: 1024px) {
+    .data {
+        width: calc(33.333% - 20px);
+    }
+}
+
+/* ===========================
+   Tablet (2 cards)
+=========================== */
+@media (max-width: 768px) {
+    .travel-items {
+        gap: 16px;
+    }
+
+    .data {
+        width: calc(50% - 16px);
+        min-height: auto;
+    }
+
+    .data img {
+        height: 220px;
+    }
+}
+
+/* ===========================
+   Mobile (1 card)
+=========================== */
+@media (max-width: 576px) {
+    .travel-items {
+        padding: 20px 15px;
+    }
+
+    .data {
+        width: 100%;
+        padding: 15px;
+    }
+
+
+    .data h4 {
+        font-size: 17px;
+    }
+
+    .data p {
+        font-size: 14px;
+        padding: 0;
+    }
 }
