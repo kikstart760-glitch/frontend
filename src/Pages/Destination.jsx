@@ -1,6 +1,9 @@
 import React from 'react'
 import BannerComponent from '../Components/BannerComponent/BannerComponent'
 import TravelComponent from '../Components/TravelComponent/TravelComponent'
+import InstaComponent from '../Components/InstaComponent/InstaComponent'
+import GetStarted from '../Components/GetStarted/GetStarted'
+import BrandsComponents from '../Components/BrandsComponent/BrandsComponents'
 
 function Destination() {
   return (
@@ -12,6 +15,19 @@ function Destination() {
           </div>
           <div className="container">
               <TravelComponent />
+          </div>
+          <div className="instagram">
+              <InstaComponent />
+          </div>
+          <div className="back3">
+              <div className="container">
+                  <GetStarted />
+              </div>
+          </div>
+          <div className="back4">
+              <div className="container">
+                  <BrandsComponents />
+              </div>
           </div>
       </>
   )

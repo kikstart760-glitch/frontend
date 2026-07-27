@@ -1,9 +1,10 @@
-import React from 'react'
+import {React,useState} from 'react'
 import '../TravelComponent/TravelComponent.css'
 import img1 from '../../assets/travel1.png'
 import img2 from '../../assets/travel2.png'
 import img3 from '../../assets/travel3.png'
 import img4 from '../../assets/travel4.png'
+import TravelModal from '../TravelModal/TravelModal'
 
 function TravelComponent() {
     const destinations = [
@@ -68,6 +69,20 @@ function TravelComponent() {
             desc: "Unwind on the pristine beaches of Zanzibar, known for its turquoise waters and swaying palm trees. Engage in yoga retreats, explore spice markets, and indulge in traditional Swahili cuisine.",
         },
     ]
+
+    const [show, setShow] = useState(false);
+    const [selectedDestination, setSelectedDestination] = useState(null);
+
+    const handleShow = (item) => {
+        setSelectedDestination(item);
+        setShow(true);
+    };
+
+    const handleClose = () => {
+        setShow(false);
+        setSelectedDestination(null);
+    };
+
   return (
     <>
        <div className="travel-items">
@@ -76,12 +91,17 @@ function TravelComponent() {
             <img src={data.img} alt={data.title} />
             <h4>{data.title}</h4>
             <p>{data.desc}</p>
-            <span onClick={() => handleShow(data.id)} className="learn-more">
+            <span onClick={() => handleShow(data)} className="learn-more">
                 Learn More →
             </span>
             </div>
         ))}
        </div>
+       <TravelModal 
+            show={show} 
+            handleClose={handleClose} 
+            destination={selectedDestination} 
+       />
     </>
   )
 }
