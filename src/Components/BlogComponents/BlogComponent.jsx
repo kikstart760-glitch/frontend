@@ -80,6 +80,12 @@ function BlogComponent() {
                             </div>
                         </div>
                     </Col>
+                    <Col md={4}>
+                        <div className="blog-sidebar">
+                            <h2>Recent Posts</h2>
+                            <p>this is a simple sidebar for recent blog posts.</p>
+                        </div>
+                    </Col>
                 </Row>
             </Container>
         </div>
