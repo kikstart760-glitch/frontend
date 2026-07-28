@@ -15,6 +15,7 @@ import ProtectedRoute from "./Helper/ProtectedRoute";
 import BookConsultation from "./Pages/BookConsultation";
 import Destination from "./Pages/Destination";
 import CompanyInfo from "./Pages/CompanyInfo";
+import Blog from "./Pages/Blog";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/book" element={<BookConsultation />} />
             <Route path="/destination" element={<Destination />} />
             <Route path="/company-info" element={<CompanyInfo />} />
+            <Route path="/blog" element={<Blog />} />
           </Route>
         </Routes>
       </Router>
