@@ -20,7 +20,7 @@
     font-weight: 400;
     line-height: 25px;
     color: #565555;
-    width: 648px;
+    max-width: 648px;
 }
 .bottom-text p{
     font-family: 'Kumbh Sans', sans-serif;
@@ -28,6 +28,6 @@
     font-weight: 400;
     line-height: 25px;
     color: #565555;
-    width: 1141px;
+    max-width: 1141px;
     padding: 0 20px;
 }
