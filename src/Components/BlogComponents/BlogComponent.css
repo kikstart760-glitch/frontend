@@ -73,3 +73,82 @@
     color: #565555;
     text-align: center;
 }
+
+
+.blog-sidebar {
+    padding-left: 30px;
+    margin-top: 60px;
+}
+
+.blog-search {
+    margin-bottom: 25px;
+}
+
+.blog-search .form-control {
+    height: 52px;
+    border: 1px solid #e5e5e5;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'kumbh Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #585E63;
+}
+
+.blog-search .form-control::placeholder {
+    color: #666;
+    letter-spacing: 2px;
+}
+
+/* Accordion */
+/* Keep border under every accordion item, including the last one */
+.blog-accordion .accordion-item:last-child {
+    border-bottom: 1px solid #ededed !important;
+}
+
+.blog-accordion .accordion-button {
+    color: #212121;
+    font-family: "kumbh Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 18px 0;
+    box-shadow: none;
+}
+
+.blog-accordion .accordion-button:not(.collapsed) {
+    background: #fff;
+    color: #333;
+}
+
+.blog-accordion .accordion-button:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.blog-accordion .accordion-button::after {
+    background-size: 12px;
+}
+
+.blog-accordion .accordion-body {
+    font-size: 14px;
+    color: #777;
+    line-height: 26px;
+    padding: 0 0 18px;
+}
+
+/* Last two normal rows */
+.blog-sidebar-item {
+    padding: 18px 0;
+    border-bottom: 1px solid #ededed;
+   font-family: "kumbh Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #212121;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.blog-sidebar-item:hover {
+    color: #000;
+}
