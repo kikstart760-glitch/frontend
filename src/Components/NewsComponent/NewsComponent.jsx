@@ -59,7 +59,7 @@ function NewsComponent() {
             </div>
         </div>
         <div className="news-button">
-            <Button2Component text="View all News" path="/news" />
+            <Button2Component text="View all Blogs" path="/blog" />
         </div>
     </>
   )

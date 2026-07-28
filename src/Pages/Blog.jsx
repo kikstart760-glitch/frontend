@@ -3,6 +3,7 @@ import BannerComponent from '../Components/BannerComponent/BannerComponent'
 import BrandsComponents from '../Components/BrandsComponent/BrandsComponents'
 import GetStarted from '../Components/GetStarted/GetStarted'
 import InstaComponent from '../Components/InstaComponent/InstaComponent'
+import BlogComponent from '../Components/BlogComponents/BlogComponent'
 
 function Blog() {
   return (
@@ -14,7 +15,10 @@ function Blog() {
                 />
             </div>
         </div>
-                <div className="instagram">
+        <div className="container">
+          <BlogComponent/>
+        </div>
+        <div className="instagram">
           <InstaComponent/>
         </div>
         <div className="back3">
