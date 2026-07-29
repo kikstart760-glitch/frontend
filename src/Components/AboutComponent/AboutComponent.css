@@ -20,6 +20,7 @@ h2.about-heading {
     max-height: 601px;
     padding: 40px 0px 40px 0px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: right;
     width: 85%;
@@ -28,16 +29,10 @@ h2.about-heading {
 .about-left img {
     height: 497px;
     width: 85%;
-    margin-left: -100px;
 }
 
 
 /* RIGHT CONTENT */
-.about-right {
-    flex: 1;
-    margin-right: 50px;
-    margin-left: -50px;
-}
 
 .about-right h6{
     font-family: 'kumbh-sans', sans-serif;

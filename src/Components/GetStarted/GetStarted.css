@@ -1,38 +1,42 @@
 .img-fluid{
-    max-width: fit-content;
+  max-width: fit-content;
+}
+
+.get-started-wrapper{
+  max-width: 600px;
 }
 
 
 .get-started-left h2{
-    font-family: "Sawarabi Mincho", serif;
-    font-size: 40px;
-    font-weight: 400;
-    color: #ffffff;
-    padding-top: 100px;
+  font-family: "Sawarabi Mincho", serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #ffffff;
+  padding-top: 100px;
 }
 
 .get-started-left p{
-    line-height: 25px;
-    font-family:"kumbh Sans", sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    color: #ffffff;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  line-height: 25px;
+  font-family:"kumbh Sans", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .custom-form-control {
-    background: transparent;
-    border: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 0 !important;
-    color: #ffffff !important;
-    padding-left: 0 !important;
-    padding-bottom: 20px !important;
-    box-shadow: none;
-    font-family:"Sawarabi Mincho", serif;
-    font-size: 16px;
-    font-weight: 400;
+  background: transparent;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  padding-left: 0 !important;
+  padding-bottom: 20px !important;
+  box-shadow: none;
+  font-family:"Sawarabi Mincho", serif;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .custom-form-control::placeholder {
