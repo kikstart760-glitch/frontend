@@ -12,7 +12,7 @@ h2.about-heading {
 }
 
 .about-content{ 
-    background-image: url('../../assets/about-lady-back.png'); 
+    background-color: #EDFAFF; 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,12 +23,11 @@ h2.about-heading {
     flex-wrap: wrap;
     align-items: center;
     justify-content: right;
-    width: 85%;
+    min-width: 85%;
 }
 
 .about-left img {
     height: 497px;
-    width: 85%;
 }
 
 
@@ -59,6 +58,7 @@ h2.about-heading {
     font-weight: 400;
     color: #565555;
     line-height: 25px;
+    width: 600px;
 }
 
 
