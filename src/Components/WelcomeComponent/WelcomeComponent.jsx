@@ -32,7 +32,7 @@ function WelcomeComponent() {
                 </p>
 
                  <div className="button-container">
-                     <Button2Component text="Learn More" path="/destinations" />
+                     <Button2Component text="Learn More" path="/company-info" />
                  </div>
             </div>
         </section>

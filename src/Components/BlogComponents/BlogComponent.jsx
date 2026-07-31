@@ -83,7 +83,6 @@ function BlogComponent() {
                     </Col>
                       <Col md={4}>
                           <div className="blog-sidebar">
-
                               {/* Search Box */}
                               <div className="blog-search">
                                   <input
@@ -92,7 +91,6 @@ function BlogComponent() {
                                       className="form-control"
                                   />
                               </div>
-
                               {/* Accordion */}
                               <Accordion flush className="blog-accordion">
                                   <Accordion.Item eventKey="0">
@@ -101,28 +99,24 @@ function BlogComponent() {
                                           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                       </Accordion.Body>
                                   </Accordion.Item>
-
                                   <Accordion.Item eventKey="1">
                                       <Accordion.Header>CURABITUR VEL</Accordion.Header>
                                       <Accordion.Body>
                                           Curabitur vel turpis vitae lorem facilisis gravida.
                                       </Accordion.Body>
                                   </Accordion.Item>
-
                                   <Accordion.Item eventKey="2">
                                       <Accordion.Header>VIVAMUS EGET</Accordion.Header>
                                       <Accordion.Body>
                                           Vivamus eget sapien eu nunc faucibus suscipit.
                                       </Accordion.Body>
                                   </Accordion.Item>
-
                                   <Accordion.Item eventKey="3">
                                       <Accordion.Header>CURABITUR QUIS</Accordion.Header>
                                       <Accordion.Body>
                                           Donec volutpat, erat sed dictum feugiat.
                                       </Accordion.Body>
                                   </Accordion.Item>
-
                                   <Accordion.Item eventKey="4">
                                       <Accordion.Header>NAM BLANDIT</Accordion.Header>
                                       <Accordion.Body>
@@ -130,16 +124,13 @@ function BlogComponent() {
                                       </Accordion.Body>
                                   </Accordion.Item>
                               </Accordion>
-
                               {/* Normal Items */}
                               <div className="blog-sidebar-item">
                                   FUSCE FACILISIS
                               </div>
-
                               <div className="blog-sidebar-item">
                                   CURABITUR VEL
                               </div>
-
                           </div>
                       </Col>
                 </Row>

@@ -24,3 +24,9 @@
     color: #565555;
     max-width: 500px;
 }
+
+@media (max-width:768px) {
+    .company-title h2{
+        font-size: 35px;
+    }
+}

@@ -13,3 +13,21 @@
 .custom-btn2:hover {
   background: #0184b8;
 }
+
+@media (max-width:992px) {
+  .custom-btn2{
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width:768px) {
+  .custom-btn2{
+    padding: 8px 18px;
+  }
+}
+
+@media (max-width:576px) {
+  .custom-btn2{
+    padding: 6px 16px;
+  }
+}

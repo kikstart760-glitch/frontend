@@ -60,3 +60,23 @@
 .button-wrapper {
     margin-top: 25px;
 }
+
+@media (max-width:992px) {
+  .get-started-wrapper{
+    max-width: 100%;
+    text-align: center;
+  }
+  .back3{
+    background-color: #0F2F3C !important;
+    background-image: none;
+  }
+  .custom-form-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width:576px) {
+  .get-started-left h2{
+   font-size: 28px;
+  }
+}

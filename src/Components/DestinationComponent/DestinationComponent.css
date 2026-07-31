@@ -58,4 +58,8 @@ h2.travel-title{
     color: #046084;
 }
 
-
+@media (max-width:992px) {
+    h2.travel-title{
+        font-size: 30px;
+    }
+}

@@ -8,7 +8,7 @@ function DiscussComponent() {
     <>
         <div className="discuss-cover">
             <Container>
-                <Row className="align-items-center px-5">
+                <Row>
                     <Col md={4} className="discuss-left">
                         <img src={img1} alt="Discuss" className="discuss-img" />
                     </Col>
