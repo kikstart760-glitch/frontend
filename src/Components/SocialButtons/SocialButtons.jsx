@@ -5,9 +5,14 @@ import FacebookIcon from  '../../assets/facebook.png'
 import GitIcon from'../../assets/github.png'
 
 function SocialButtons() {
+
+    const handleGoogleLogin = () => {
+        window.location.href = "http://localhost:3000/api/v1/google";
+    }
+
   return (
     <div className="social-buttons">
-        <button className="btn btn-social">
+        <button className="btn btn-social" onclick={handleGoogleLogin}>
             <img src={GoogleIcon} alt="Google" style={{ width: '20px'}} />
         </button>
         <button className="btn btn-social">

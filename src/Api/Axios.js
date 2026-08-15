@@ -13,6 +13,9 @@ api.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
+  (error) => {
+    return Promise.reject(error);
+  }
 });
 
 // RESPONSE
@@ -42,14 +45,17 @@ api.interceptors.response.use(
           newAccessToken
         );
 
-        originalRequest.headers.Authorization =
-          `Bearer ${newAccessToken}`;
+        originalRequest.headers={ ...originalRequest.headers,
+          Authorization :`Bearer ${newAccessToken}`
+        };
 
         return api(originalRequest);
 
       } catch (err) {
 
         localStorage.removeItem("accessToken");
+
+        localStorage.removeItem("role");
 
         window.location.href = "/login";
 
