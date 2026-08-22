@@ -16,6 +16,7 @@ import BookConsultation from "./Pages/BookConsultation";
 import Destination from "./Pages/Destination";
 import CompanyInfo from "./Pages/CompanyInfo";
 import Blog from "./Pages/Blog";
+import Error from "./Pages/Error";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Router>
         <Routes>
           <Route element={<AuthLayout/>}>
+            <Route path="*" element={<Error />} />
             <Route path="/signup" element={<SignUp/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/otp" element={<Otp/>} />
