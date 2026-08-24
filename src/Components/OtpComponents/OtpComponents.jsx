@@ -251,7 +251,7 @@ function OtpComponents() {
         {/* Resend OTP */}
         <div className="resend-wrapper">
           {timer > 0 ? (
-            <p className="timer-text">Resend OTP in {timer}s</p>
+            <p className="timer-text">Resend OTP in {timer}sec...</p>
           ) : (
             <button
               type="button"
