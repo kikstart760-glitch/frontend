@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainLayout from "./Layout/MainLayout";
 import AuthLayout from "./Layout/AuthLayout";
+import Layout from "./Layout/Layout";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
@@ -34,15 +35,18 @@ function App() {
           </Route>
 
           <Route path="/" element={<MainLayout/>}>
-            <Route element={<ProtectedRoute/>}>
-              <Route path="/dashboard" element={<Dashboard/>} />
-            </Route>
             <Route index element={<Home/>} />
             <Route path="/about-me" element={<About />} />
             <Route path="/book" element={<BookConsultation />} />
             <Route path="/destination" element={<Destination />} />
             <Route path="/company-info" element={<CompanyInfo />} />
             <Route path="/blog" element={<Blog />} />
+          </Route>
+
+          <Route path="/" element={<Layout/>}>
+            <Route element={<ProtectedRoute/>}>
+              <Route path="/dashboard" element={<Dashboard/>} />
+            </Route>
           </Route>
         </Routes>
       </Router>

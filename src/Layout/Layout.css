@@ -1,0 +1,24 @@
+.layout {
+  min-height: 100vh;
+}
+
+/* MAIN */
+.main {
+  min-height: 100vh;
+
+  background: #f8fafc;
+
+  transition: margin-left 0.3s ease;
+}
+
+
+/* CONTENT */
+.content {
+  padding: 20px;
+
+  padding-top: 90px;
+
+  min-height: 100vh;
+
+  box-sizing: border-box;
+}

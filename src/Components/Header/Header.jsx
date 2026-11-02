@@ -114,8 +114,8 @@ function Header() {
                   </span>
                 }
               >
-                <NavDropdown.Item onClick={() => navigate("/profile")}>
-                  Profile
+                <NavDropdown.Item onClick={() => navigate("/dashboard")}>
+                  Dashboard
                 </NavDropdown.Item>
 
                 <NavDropdown.Item onClick={() => logoutMutation.mutate()}>
