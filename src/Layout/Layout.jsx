@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+
 import Navbar from "../Components/NavbarComponent/NavbarComponent";
 import Sidebar from "../Components/SidebarComponent/SidebarComponent";
 import "../Layout/Layout.css";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleSidebar = () => {
@@ -13,8 +15,10 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
 
+      {/* Sidebar */}
       <Sidebar collapsed={collapsed} />
 
+      {/* Main Content */}
       <div className={`main ${collapsed ? "expanded" : ""}`}>
 
         <Navbar
@@ -22,8 +26,9 @@ const Layout = ({ children }) => {
           collapsed={collapsed}
         />
 
-        <div className="content">
-          {children}
+        {/* Nested Routes */}
+        <div className="content-container">
+          <Outlet />
         </div>
 
       </div>

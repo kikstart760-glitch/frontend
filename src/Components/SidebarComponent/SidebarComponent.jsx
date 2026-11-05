@@ -66,8 +66,8 @@ function SidebarComponent({ collapsed }) {
 
         <button
           type="button"
-          className={`menu-item ${isActive("/")}`}
-          onClick={() => navigate("/")}
+          className={`menu-item ${isActive("/dashboard")}`}
+          onClick={() => navigate("/dashboard")}
           title="Dashboard"
           aria-label="Dashboard"
         >
