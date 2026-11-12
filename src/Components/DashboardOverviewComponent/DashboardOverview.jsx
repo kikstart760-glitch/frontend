@@ -6,8 +6,8 @@ import {
   Heart,
   Globe2,
   Award,
-  ArrowUpRight,
-  TrendingUp
+  TrendingUp,
+  ArrowRight,
 } from "lucide-react";
 
 import {
@@ -24,6 +24,8 @@ const stats = [
     growth: "20%",
     icon: <BriefcaseBusiness />,
     color: "blue",
+    arrowIcon: <ArrowRight />,
+    trendingIcon: <TrendingUp />,
   },
   {
     title: "Wishlist Items",
@@ -31,6 +33,8 @@ const stats = [
     growth: "33%",
     icon: <Heart />,
     color: "pink",
+    arrowIcon: <ArrowRight />,
+    trendingIcon: <TrendingUp />,
   },
   {
     title: "Countries Visited",
@@ -38,6 +42,8 @@ const stats = [
     growth: "25%",
     icon: <Globe2 />,
     color: "purple",
+    arrowIcon: <ArrowRight />,
+    trendingIcon: <TrendingUp />,
   },
   {
     title: "Loyalty Points",
@@ -45,6 +51,8 @@ const stats = [
     growth: "15%",
     icon: <Award />,
     color: "orange",
+    arrowIcon: <ArrowRight />,
+    trendingIcon: <TrendingUp />,
   },
 ];
 
@@ -124,12 +132,13 @@ const DashboardOverview = () => {
               <h2>{item.value}</h2>
 
               <p className="stat-growth">
-                <span>↑ {item.growth}</span>
-                <small>vs. last month</small>
+                <span>{item.trendingIcon}  {item.growth} <small>vs. last month</small></span>
               </p>
             </div>
 
-            <div className="stat-arrow">›</div>
+            <div className="stat-arrow">
+              {item.arrowIcon}
+            </div>
 
           </div>
         ))}

@@ -87,7 +87,7 @@
   border-radius: 9px;
   padding: 13px 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 15px;
   position: relative;
   transition: all 0.3s ease;
@@ -169,6 +169,7 @@
 .stat-growth small {
   color: #6881a8;
   font-size: 12px;
+  padding-left: 5px;
 }
 
 .stat-arrow {

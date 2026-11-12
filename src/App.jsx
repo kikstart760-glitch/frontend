@@ -11,6 +11,8 @@ import Otp from "./Pages/Otp";
 import Forgotpassword from "./Pages/Forgotpassword";
 import Resetpassword from "./Pages/Resetpassword";
 import Dashboard from "./Pages/Dashboard";
+import MyBooking from "./Pages/MyBooking";
+import Wishlist from "./Pages/Wishlist";
 import Emailsms from "./Pages/Emailsms";
 import ProtectedRoute from "./Helper/ProtectedRoute";
 import BookConsultation from "./Pages/BookConsultation";
@@ -46,6 +48,8 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route element={<ProtectedRoute/>}>
               <Route path="/dashboard" element={<Dashboard/>} />
+              <Route path="/bookings" element={<MyBooking/>} />
+              <Route path="/wishlist" element={<Wishlist/>} />
             </Route>
           </Route>
         </Routes>
