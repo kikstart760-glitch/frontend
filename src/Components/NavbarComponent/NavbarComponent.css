@@ -1,24 +1,41 @@
+
+/* ==============================
+   MAIN NAVBAR
+============================== */
+
 .navbar {
   position: fixed !important;
   top: 0;
   left: 260px;
   right: 0;
+
   height: 70px;
+
   background: #ffffff;
+
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
+
   padding: 0 25px !important;
+
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+
   box-sizing: border-box;
   z-index: 999;
+
   transition: left 0.3s ease;
 }
 
-/* WHEN SIDEBAR IS COLLAPSED */
+/* COLLAPSED SIDEBAR */
+
 .navbar.collapsed-navbar {
   left: 80px;
 }
+
+/* ==============================
+   LEFT SECTION
+============================== */
 
 .nav-left {
   display: flex;
@@ -27,22 +44,42 @@
   margin-left: 10px;
 }
 
+/* MENU ICON */
+
 .menu-icon {
   font-size: 20px;
   cursor: pointer;
   color: #555;
+  transition: 0.2s ease;
 }
 
-/* SEARCH */
+.menu-icon:hover {
+  color: #1760ed;
+}
+
+/* ==============================
+   SEARCH BOX
+============================== */
 
 .search-box {
   display: flex;
   align-items: center;
+
   background: #f1f5f9;
+
   padding: 10px 15px;
+
   border-radius: 12px;
+
   width: 350px;
   gap: 10px;
+
+  transition: 0.2s ease;
+}
+
+.search-box:focus-within {
+  background: #ffffff;
+  box-shadow: 0 0 0 2px #dbeafe;
 }
 
 .search-box input {
@@ -50,13 +87,23 @@
   outline: none;
   background: transparent;
   width: 100%;
+
+  font-size: 13px;
+  color: #333;
+}
+
+.search-box input::placeholder {
+  color: #999;
 }
 
 .search-icon {
   color: #888;
+  font-size: 14px;
 }
 
-/* RIGHT */
+/* ==============================
+   RIGHT SECTION
+============================== */
 
 .nav-right {
   display: flex;
@@ -64,44 +111,61 @@
   gap: 25px;
 }
 
+/* NOTIFICATION AND MESSAGE ICONS */
+
 .icon {
   position: relative;
   font-size: 18px;
   cursor: pointer;
   color: #555;
+  transition: 0.2s ease;
 }
 
-/* BADGE */
+.icon:hover {
+  color: #1760ed;
+}
+
+/* NOTIFICATION BADGE */
 
 .badge {
   position: absolute;
-
   top: -6px;
   right: -8px;
 
-  background: red;
-  color: white;
+  background: #ef4444;
+  color: #ffffff;
 
   font-size: 10px;
-
   padding: 3px 6px;
 
   border-radius: 50%;
 }
 
-/* PROFILE */
+/* ==============================
+   PROFILE SECTION
+============================== */
+
+.profile-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
 .profile {
   display: flex;
   align-items: center;
   gap: 10px;
+
   cursor: pointer;
+  transition: 0.2s ease;
 }
 
 .profile img {
   width: 40px;
   height: 40px;
+
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .profile-info {
@@ -113,9 +177,325 @@
   font-size: 14px;
   margin: 0;
   font-weight: 500;
+  color: #222;
+  transition: 0.2s ease;
 }
 
 .role {
   font-size: 12px;
   color: gray;
+}
+
+/* PROFILE HOVER */
+
+.profile:hover .name {
+  color: #1760ed;
+}
+
+/* ==============================
+   PROFILE DROPDOWN ARROW
+============================== */
+
+.profile-arrow {
+  font-size: 11px;
+  color: #888;
+  margin-left: 3px;
+
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* HOVER ARROW */
+
+.profile:hover .profile-arrow {
+  color: #1760ed;
+}
+
+/* ARROW ROTATION */
+
+.profile.active .profile-arrow {
+  transform: rotate(180deg);
+  color: #1760ed;
+}
+
+/* ==============================
+   PROFILE POPUP MODAL
+============================== */
+
+.profile-modal {
+  position: absolute;
+
+  top: calc(100% + 18px);
+  right: 0;
+
+  width: 280px;
+  padding: 16px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+
+  z-index: 2000;
+  box-sizing: border-box;
+
+  animation: profileFade 0.2s ease;
+}
+
+/* POPUP ANIMATION */
+
+@keyframes profileFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   MODAL PROFILE HEADER
+============================== */
+
+.modal-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-profile-header img {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.modal-user-info {
+  min-width: 0;
+}
+
+.modal-user-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #15284b;
+  margin: 0 0 6px;
+}
+
+.modal-user-info p {
+  font-size: 11px;
+  color: #6680aa;
+  margin: 0 0 10px;
+  white-space: nowrap;
+}
+
+/* ==============================
+   PREMIUM BADGE
+============================== */
+
+.premium-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: #eeeeff;
+  color: #1755f5;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  padding: 7px 10px;
+  border-radius: 20px;
+
+  white-space: nowrap;
+}
+
+.premium-badge svg {
+  font-size: 11px;
+}
+
+/* ==============================
+   PROFILE DETAILS
+============================== */
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  margin: 22px 8px 26px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  color: #607ba5;
+  font-size: 12px;
+}
+
+.detail-item svg {
+  font-size: 15px;
+  color: #5475a9;
+}
+
+/* ==============================
+   VIEW PROFILE BUTTON
+============================== */
+
+.view-profile-btn {
+  width: 100%;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  background: #e0edff;
+  color: #1760ed;
+
+  border: none;
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.view-profile-btn:hover {
+  background: #cfe2ff;
+  transform: translateY(-1px);
+}
+
+.view-profile-btn svg {
+  font-size: 15px;
+}
+
+.view-profile-btn .view-arrow {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.view-profile-btn:hover .view-arrow {
+  transform: translateX(4px);
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 992px) {
+
+  .search-box {
+    width: 250px;
+  }
+
+  .nav-right {
+    gap: 18px;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    left: 80px;
+    padding: 0 15px !important;
+  }
+
+  .navbar.collapsed-navbar {
+    left: 80px;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+
+  .nav-left {
+    gap: 15px;
+    margin-left: 0;
+  }
+
+  .nav-right {
+    gap: 15px;
+  }
+
+  .profile-info {
+    display: none;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .navbar {
+    left: 0;
+    height: 65px;
+    padding: 0 12px !important;
+  }
+
+  .navbar.collapsed-navbar {
+    left: 0;
+  }
+
+  .search-box {
+    width: 150px;
+    padding: 9px 10px;
+  }
+
+  .search-box input {
+    font-size: 11px;
+  }
+
+  .nav-left {
+    gap: 12px;
+  }
+
+  .nav-right {
+    gap: 12px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+
+  .profile img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .profile-arrow {
+    font-size: 10px;
+  }
+
+  .profile-modal {
+    position: fixed;
+    top: 75px;
+    right: 12px;
+
+    width: min(280px, calc(100vw - 24px));
+  }
+
+}
+
+@media (max-width: 380px) {
+
+  .search-box {
+    width: 115px;
+  }
+
+  .nav-right {
+    gap: 9px;
+  }
+
 }

@@ -1,0 +1,193 @@
+
+/* MAIN CARD */
+
+.travel-spending-card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e5edf8;
+  border-radius: 12px;
+
+  padding: 18px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+
+  box-sizing: border-box;
+}
+
+/* HEADER */
+
+.spending-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 14px;
+}
+
+.spending-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #14264d;
+
+  margin: 0;
+}
+
+/* DROPDOWN */
+
+.period-select-wrapper {
+  position: relative;
+}
+
+.period-select {
+  appearance: none;
+
+  background: #ffffff;
+
+  border: 1px solid #e5edf8;
+  border-radius: 8px;
+
+  padding: 8px 30px 8px 10px;
+
+  font-size: 11px;
+  color: #526b96;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.period-select:focus {
+  border-color: #2875ff;
+}
+
+.select-arrow {
+  position: absolute;
+
+  right: 10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 10px;
+
+  color: #7186a7;
+
+  pointer-events: none;
+}
+
+/* ==============================
+   SPENDING SUMMARY
+============================== */
+
+.spending-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+
+  margin-bottom: 12px;
+}
+
+.spending-summary h2 {
+  font-size: 23px;
+  font-weight: 700;
+
+  color: #14264d;
+
+  margin: 0;
+}
+
+/* GROWTH */
+
+.spending-growth {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding-top: 2px;
+}
+
+.growth-percentage {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #08a66b;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.growth-percentage svg {
+  font-size: 11px;
+}
+
+.spending-growth p {
+  font-size: 10px;
+  color: #8295b4;
+
+  margin: 0;
+}
+
+/* ==============================
+   CHART
+============================== */
+
+.spending-chart {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 220px;
+
+  display: block;
+  overflow: visible;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 768px) {
+
+  .travel-spending-card {
+    padding: 15px;
+  }
+
+  .spending-summary h2 {
+    font-size: 21px;
+  }
+
+  .chart-svg {
+    height: 200px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .spending-header h3 {
+    font-size: 14px;
+  }
+
+  .period-select {
+    font-size: 10px;
+    padding: 7px 25px 7px 8px;
+  }
+
+  .spending-summary {
+    gap: 12px;
+  }
+
+  .spending-summary h2 {
+    font-size: 20px;
+  }
+
+  .chart-svg {
+    height: 190px;
+  }
+
+}

@@ -1,0 +1,276 @@
+
+.destination-section {
+  width: 100%;
+  padding: 10px 0;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Destination Card */
+
+.destination-card {
+  background: #ffffff;
+  border: 1px solid #e5edfa;
+  border-radius: 11px;
+  overflow: visible;
+  box-shadow: 0 2px 8px rgba(30, 80, 150, 0.07);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(30, 80, 150, 0.12);
+}
+
+/* Image */
+
+.destination-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 143px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px 10px 6px 6px;
+}
+
+.destination-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.destination-card:hover .destination-image {
+  transform: scale(1.04);
+}
+
+/* Wishlist */
+
+.wishlist-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #ff4b55;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease;
+}
+
+.wishlist-button:hover {
+  transform: scale(1.12);
+}
+
+.wishlist-button:not(.wishlisted) {
+  color: #7c8ba5;
+}
+
+/* Content */
+
+.destination-content {
+  padding: 12px 16px 15px;
+}
+
+.destination-content h3 {
+  margin: 0 0 9px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #10234e;
+}
+
+/* Information */
+
+.destination-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #687fae;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.info-row svg {
+  color: #5875a9;
+  flex-shrink: 0;
+  stroke-width: 2;
+}
+
+.info-dot {
+  margin: 0 1px;
+}
+
+/* Footer */
+
+.destination-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 17px;
+}
+
+.destination-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.destination-price strong {
+  color: #0b2050;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.destination-price span {
+  color: #7185ac;
+  font-size: 11px;
+}
+
+/* Actions */
+
+.destination-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.destination-details-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 9px 15px;
+  min-width: 115px;
+  background: #2875ff;
+  border: none;
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.destination-details-btn:hover {
+  background: #1558dc;
+}
+
+/* Three Dot Menu */
+
+.destination-menu-wrapper {
+  position: relative;
+}
+
+.destination-menu-btn {
+  width: 23px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #0b2050;
+  cursor: pointer;
+}
+
+.destination-menu-btn:hover {
+  color: #2875ff;
+}
+
+.destination-dropdown {
+  position: absolute;
+  right: 0;
+  bottom: 35px;
+  width: 165px;
+  background: #ffffff;
+  border: 1px solid #e5edfa;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+  padding: 5px;
+}
+
+.destination-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #24385f;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.destination-dropdown button:hover {
+  background: #eff5ff;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+  .destination-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .destination-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .destination-image-wrapper {
+    height: 190px;
+  }
+
+  .destination-content {
+    padding: 13px;
+  }
+
+  .destination-footer {
+    flex-wrap: wrap;
+  }
+
+  .destination-price strong {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 360px) {
+  .destination-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .destination-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
