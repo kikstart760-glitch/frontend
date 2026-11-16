@@ -20,6 +20,7 @@ import Destination from "./Pages/Destination";
 import CompanyInfo from "./Pages/CompanyInfo";
 import Blog from "./Pages/Blog";
 import Error from "./Pages/Error";
+import Settings from "./Pages/Settings";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard/>} />
               <Route path="/bookings" element={<MyBooking/>} />
               <Route path="/wishlist" element={<Wishlist/>} />
+              <Route path="/settings" element={<Settings/>} />
             </Route>
           </Route>
         </Routes>

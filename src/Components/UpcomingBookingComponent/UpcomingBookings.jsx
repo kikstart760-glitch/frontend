@@ -76,7 +76,7 @@ const UpcomingBookings = () => {
         {bookings.map((booking) => (
 
           <div
-            className="booking-item"
+            className="booking-items"
             key={booking.id}
             onClick={() => handleBookingClick(booking)}
           >

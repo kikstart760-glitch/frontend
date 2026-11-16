@@ -67,7 +67,7 @@
 
 /* BOOKING ITEM */
 
-.booking-item {
+.booking-items {
   display: flex;
   align-items: center;
 
@@ -81,11 +81,11 @@
   transition: background 0.2s ease;
 }
 
-.booking-item:last-child {
+.booking-items:last-child {
   border-bottom: none;
 }
 
-.booking-item:hover {
+.booking-items:hover {
   background: #f8faff;
 }
 
